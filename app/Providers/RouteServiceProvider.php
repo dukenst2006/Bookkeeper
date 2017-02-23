@@ -56,6 +56,12 @@ class RouteServiceProvider extends ServiceProvider
             'namespace' => $this->namespace, 'middleware' => 'web',
         ], function ($router) {
             require app_path('Http/routes.php');
+
+            // Install routes
+            if ( ! is_installed())
+            {
+                require app_path('Http/routes_install.php');
+            }
         });
     }
 }

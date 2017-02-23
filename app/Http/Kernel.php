@@ -29,6 +29,8 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Bookkeeper\Http\Middleware\VerifyCsrfToken::class,
+            \Bookkeeper\Http\Middleware\RedirectIfNotInstalled::class,
+            \Bookkeeper\Http\Middleware\DetermineLocale::class,
         ],
 
         'api' => [
