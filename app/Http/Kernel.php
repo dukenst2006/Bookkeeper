@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \Bookkeeper\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'set-theme'  => \igaster\laravelTheme\Middleware\setTheme::class,
     ];
 }

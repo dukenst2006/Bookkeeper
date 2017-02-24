@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -110,7 +110,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'base64:a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5r6s7t8u9v0y='),
 
     'cipher' => 'AES-256-CBC',
 
@@ -173,11 +173,13 @@ return [
         Bookkeeper\Providers\AppServiceProvider::class,
         Bookkeeper\Providers\AuthServiceProvider::class,
         Bookkeeper\Providers\EventServiceProvider::class,
+        Bookkeeper\Providers\HtmlBuildersServiceProvider::class,
         Bookkeeper\Providers\RouteServiceProvider::class,
 
         /*
          * Other Vendor Service Providers...
          */
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
 
@@ -227,6 +229,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Debugbar'    => Barryvdh\Debugbar\Facade::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
+        'Theme'       => igaster\laravelTheme\Facades\Theme::class,
     ],
 
 ];

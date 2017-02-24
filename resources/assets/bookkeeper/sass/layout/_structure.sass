@@ -1,0 +1,18 @@
+.scroller
+    position: relative
+    height: 100%
+
+.content-whiteout
+    +position(absolute, 0 null null 0)
+    +size(100%)
+    opacity: 0
+    z-index: -1
+    background-color: $colorWhiteout
+    +transition(opacity $durationMedium, z-index 0 ease $durationMediumUp)
+
+    @media screen and (max-width: $thresholdCollapse)
+        &--active
+            z-index: 120
+            opacity: 1
+            +transition(opacity $durationMedium)
+            cursor: pointer

@@ -60,7 +60,7 @@ class RouteServiceProvider extends ServiceProvider
             // Install routes
             if ( ! is_installed())
             {
-                require app_path('Http/routes_install.php');
+                require app_path('Http/routes/install.php');
             }
         });
     }

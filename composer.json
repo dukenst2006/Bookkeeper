@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
+        "kris/laravel-form-builder": "1.8.*",
         "igaster/laravel-theme": "^1.0",
         "barryvdh/laravel-debugbar": "~2.0",
         "guzzlehttp/guzzle": "~5.3",

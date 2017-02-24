@@ -1,5 +1,7 @@
 <?php
 
+require_once 'routes/common.php';
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
