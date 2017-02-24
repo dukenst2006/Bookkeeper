@@ -15,7 +15,7 @@
             <p>{{ trans('install.install_success') }}</p>
             <p class="text--sm">{{ trans('install.enjoy_bookkeeper') }}</p>
             <br><br><br><br><br>
-            {!! action_button(route('auth.login'), 'icon-login', trans('install.go_to_login')) !!}
+            {!! action_button(route('bookkeeper.auth.login'), 'icon-login', trans('install.go_to_login')) !!}
         </div>
     </div>
 </main>
