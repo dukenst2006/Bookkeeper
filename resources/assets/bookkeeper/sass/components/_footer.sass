@@ -1,0 +1,37 @@
+.footer-container
+    text-align: center
+    padding: 2em 0
+
+.footer-brand
+    text-align: center
+
+    &__bookkeeper
+        color: $colorDarkBG0
+        display: inline-block
+        position: relative
+        margin-bottom: 1.5em
+        img
+            width: 1.5em
+
+        &:after
+            content: ''
+            display: inline-block
+            width: 1em
+            height: 1px
+            +position(absolute, null null -1em 50%)
+            margin-left: -0.5em
+            background-color: $colorDarkBG3
+
+        img
+            width: 1.5em
+        span
+            display: block
+            font-size: 0.625em
+            line-height: 1em
+            font-family: $fontHeading
+            font-weight: $fontWeightBold
+
+    &__kk
+        display: block
+        color: $colorDarkBG0
+        font-size: 0.875em

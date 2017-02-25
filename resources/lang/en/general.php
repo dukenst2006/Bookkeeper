@@ -7,6 +7,9 @@ return [
     'no' => 'No',
     'or' => 'or',
 
+    'finance' => 'Finance',
+    'crm' => 'CRM',
+
     'back' => 'Back',
     'page' => 'Page',
 

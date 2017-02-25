@@ -10,4 +10,5 @@ Route::group(['middleware' => [
 ]], function ()
 {
     require_once 'routes/overview.php';
+    require_once 'routes/people.php';
 });

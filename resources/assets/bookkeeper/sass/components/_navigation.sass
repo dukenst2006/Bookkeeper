@@ -1,0 +1,128 @@
+.navigation-container
+    background-color: $colorDarkBG1
+    box-shadow: $shadowDown
+    margin-bottom: 2em
+
+.navigation
+    padding-bottom: 1em
+    position: relative
+    +clearfix
+
+    &__sections
+        float: left
+        padding-left: 1em
+        +clearfix
+
+    &__section
+        font-size: 0.875em
+        height: 3.43em
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+        padding: 0.875em 2em 1.125em
+        display: inline-block
+        color: $colorMutedLess
+        float: left
+        +transition(background-color $durationShort)
+
+        @media screen and (max-width: $thresholdCollapse)
+            padding: 0.875em 1.25em 1.125em
+
+        &--active
+            color: $colorDarkBG1
+            background-color: $colorEmphasis
+
+    &__search
+        +position(absolute, 0.5em null null 50%)
+        width: 18em
+        margin-left: -9em
+        border: 1px solid $colorDarkBG3
+        border-radius: 0.125em
+        overflow: hidden
+
+        @media screen and (max-width: $thresholdCollapse)
+            width: 12em
+            margin-left: -6em
+
+        input
+            font-size: 0.75em !important
+            padding-left: 1.25em !important
+            padding-right: 2.5em !important
+            +transition(background-color $durationShort)
+            color: $colorLightText !important
+            &:focus
+                background-color: $colorDarkBG2 !important
+
+        @media screen and (max-width: $thresholdMicro)
+            position: relative
+            top: 1em
+            left: auto
+            width: calc(100% - 2em)
+            margin: 1em
+
+    &__search-label
+        +position(absolute, 0.4375em 0.4375em null null)
+        color: $colorDarkBG4
+
+    &__modules
+        float: right
+        padding-top: 0.25em
+        padding-right: 1em
+
+.navigation-module
+    display: inline-block
+    margin-left: 0.25em
+    vertical-align: top
+
+    &__icon
+        font-size: 1.25em
+        line-height: 2.4em
+        width: 2.4em
+
+    &__dropdown
+        right: 0
+        top: 3em
+        background-color: $colorDarkBG4
+        border-bottom-color: $colorDarkBG3
+
+    &__info
+        background-color: $colorDarkBG3
+        color: $colorLightText
+
+.navigation-module-sub
+    &__splitter
+        border-top: 1px solid $colorDarkBG3
+
+    &__item a
+        color: $colorLightText
+
+.navigation-user
+    padding: 0.5em 0
+    margin-left: 0.75em
+
+    &__avatar
+        display: inline-block
+        +size(2.28571429em)
+        border-radius: 50%
+        background-color: $colorDarkBG2
+        color: $colorEmphasis
+        overflow: hidden
+        line-height: 2.28571429em
+        cursor: pointer
+        font-size: 0.875em
+        font-family: $fontHeading
+        text-align: center
+        position: relative
+
+        img
+            +position(absolute, 0 null null 0)
+            z-index: 2
+            width: 100%
+
+.no-touch
+    .navigation
+        &__section:hover
+            background-color: $colorDarkBG3
+        &__section--active:hover
+            background-color: $colorEmphasis
+        &__search input:hover
+            background-color: $colorDarkBG2 !important

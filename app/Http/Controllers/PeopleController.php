@@ -4,7 +4,7 @@
 namespace Bookkeeper\Http\Controllers;
 
 
-class OverviewController extends BookkeeperController {
+class PeopleController extends BookkeeperController {
 
     /**
      * Shows the overview
@@ -12,7 +12,7 @@ class OverviewController extends BookkeeperController {
      * @return view
      */
     public function index() {
-        return $this->compileView('overview.index');
+        return $this->compileView('people.index');
     }
 
 }

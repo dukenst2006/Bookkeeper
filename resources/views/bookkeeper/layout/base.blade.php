@@ -7,7 +7,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('pageTitle') &mdash; Nuclear</title>
+    <title>@yield('pageTitle') &mdash; Bookkeeper</title>
 
     {!! Theme::css('css/app.css') !!}
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300|Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>

@@ -7,6 +7,9 @@ return [
     'no' => 'Hayır',
     'or' => 'ya da',
 
+    'finance' => 'Finans',
+    'crm' => 'CRM',
+
     'back' => 'Geri',
     'page' => 'Sayfa',
 
