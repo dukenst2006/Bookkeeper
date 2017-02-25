@@ -33,7 +33,7 @@
                         <div class="dropdown__info navigation-module__info">{{ uppercase(trans('settings.title')) }}</div>
                         <ul class="dropdown-sub navigation-module-sub">
                             <li class="dropdown-sub__item navigation-module-sub__item"><a href="#"><i class="icon-wrench"></i>{{ trans('settings.index') }}</a></li>
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="#"><i class="icon-sync"></i>{{ trans('settings.update') }}</a></li>
+                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.update.index') }}"><i class="icon-sync"></i>{{ trans('update.index') }}</a></li>
                         </ul>
                     </div>
                 </li>
@@ -65,19 +65,21 @@
             </form>
         </nav>
 
-        @include('partials.tabs', [
-            'flaps' => ($currentSection === 'finance') ?
-                [
-                    'bookkeeper.overview.index' => 'overview.index',
-                    'bookkeeper.people.index' => 'transactions.title',
-                    'bookkeeper.people.create' => 'accounts.title',
-                    'bookkeeper.people.update' => 'tags.title',
-                ] :
-                [
-                    'bookkeeper.people.index' => 'people.title',
-                    'bookkeeper.people.create' => 'lists.title',
-                ]
-        ])
+        @if($currentSection === 'finance' || $currentSection === 'crm')
+            @include('partials.tabs', [
+                'flaps' => ($currentSection === 'finance') ?
+                    [
+                        'bookkeeper.overview.index' => 'overview.index',
+                        'bookkeeper.people.index' => 'transactions.title',
+                        'bookkeeper.people.create' => 'accounts.title',
+                        'bookkeeper.people.update' => 'tags.title',
+                    ] :
+                    [
+                        'bookkeeper.people.index' => 'people.title',
+                        'bookkeeper.people.create' => 'lists.title',
+                    ]
+            ])
+        @endif
 
     </div>
 </div>

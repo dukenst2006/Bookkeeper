@@ -33,5 +33,8 @@ elixir(function (mix) {
             'searchers.js',
             'forms.js'
         ], elixir.config.publicPath + '/js/forms.js')
+        .scripts([
+            'updater.js'
+        ], elixir.config.publicPath + '/js/updater.js')
     ;
 });

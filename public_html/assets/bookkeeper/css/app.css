@@ -151,6 +151,33 @@ body {
 .no-touch .button:hover {
   opacity: 0.7; }
 
+.content-inner {
+  box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.25);
+  padding: 3em 2em 3em;
+  position: relative;
+  background-color: #1D232A; }
+  .content-inner::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .content-inner__heading {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 1em; }
+    .content-inner__heading--success {
+      color: #F1C40F; }
+    .content-inner__heading--danger {
+      color: #E74C3C; }
+  .content-inner__row {
+    margin-top: 3em;
+    padding-top: 1.5em;
+    border-top: 1px solid #4A4F55; }
+  .content-inner__message {
+    margin-bottom: 1em;
+    margin-top: -1em; }
+    .content-inner__message--muted {
+      color: #95A5A6; }
+
 .has-dropdown {
   position: relative;
   text-align: center; }
@@ -1114,7 +1141,6 @@ label {
   margin-bottom: 2em; }
 
 .navigation {
-  padding-bottom: 1em;
   position: relative; }
   .navigation::after {
     clear: both;
@@ -1178,7 +1204,6 @@ label {
     color: #4A4F55; }
   .navigation__modules {
     float: right;
-    padding-top: 0.25em;
     padding-right: 1em; }
 
 .navigation-module {
@@ -1257,7 +1282,7 @@ label {
 
 .progress-bar {
   height: 2em;
-  background-color: #F5F5F5; }
+  background-color: #333941; }
   .progress-bar__rail {
     height: 100%;
     width: 0%;
