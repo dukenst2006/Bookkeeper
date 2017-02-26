@@ -9,6 +9,7 @@ return [
 
     'finance' => 'Finans',
     'crm' => 'CRM',
+    'overview_hint' => 'Burada yakın zamandaki hesap hareketlerinizi görebilirsiniz.',
 
     'back' => 'Geri',
     'page' => 'Sayfa',

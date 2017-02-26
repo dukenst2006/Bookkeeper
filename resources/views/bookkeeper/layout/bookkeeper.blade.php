@@ -6,6 +6,8 @@
     <main class="container-main" id="mainContainer">
         @include('partials.navigation')
 
+        @yield('header_content')
+
         <div class="container">
             @yield('content')
         </div>

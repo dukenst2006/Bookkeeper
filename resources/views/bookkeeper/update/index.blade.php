@@ -5,6 +5,12 @@
     $currentRoute = null;
 @endphp
 
+@section('header_content')
+    @include('partials.header', [
+        'headerTitle' => trans('update.index')
+    ])
+@endsection
+
 @section('content')
     <div class="content-inner">
         @if($updater->isBookkeeperCurrent())
