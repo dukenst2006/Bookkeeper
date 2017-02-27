@@ -182,6 +182,7 @@ return [
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class
 
     ],
 

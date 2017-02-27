@@ -24,6 +24,7 @@ elixir(function (mix) {
             'vendor/perfect-scrollbar.min.js',
             'common.js',
             'helpers.js',
+            'flash.js',
             'dropdowns.js',
             'modals.js'
         ], elixir.config.publicPath + '/js/app.js')

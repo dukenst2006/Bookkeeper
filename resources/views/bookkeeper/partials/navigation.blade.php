@@ -32,7 +32,7 @@
                     <div class="dropdown navigation-module__dropdown">
                         <div class="dropdown__info navigation-module__info">{{ uppercase(trans('settings.title')) }}</div>
                         <ul class="dropdown-sub navigation-module-sub">
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="#"><i class="icon-wrench"></i>{{ trans('settings.index') }}</a></li>
+                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.settings.edit') }}"><i class="icon-wrench"></i>{{ trans('settings.index') }}</a></li>
                             <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.update.index') }}"><i class="icon-sync"></i>{{ trans('update.index') }}</a></li>
                         </ul>
                     </div>

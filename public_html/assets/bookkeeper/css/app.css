@@ -248,6 +248,40 @@ body {
 .no-touch .dropdown-sub__item--delete:hover button {
   color: #E74C3C !important; }
 
+.flash-messages {
+  position: fixed;
+  top: 7em;
+  right: 0;
+  z-index: 115; }
+  .flash-messages--displaced {
+    top: 4em; }
+  @media screen and (max-width: 48em) {
+    .flash-messages {
+      top: 10em; }
+      .flash-messages--displaced {
+        top: 7em; } }
+
+.flash-message {
+  font-size: 0.75em;
+  padding: 0.66666667em 1.33333333em 0.66666667em 4em;
+  min-height: 3.33333333em;
+  min-width: 21.33333333em;
+  position: relative;
+  color: #FFFFFF;
+  background-color: #F1C40F;
+  margin-bottom: 1.33333333em;
+  box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.25);
+  transition: all 350ms; }
+  .flash-message--hidden {
+    transform: translateX(100%); }
+  .flash-message__icon {
+    font-size: 1.33333333em;
+    position: absolute;
+    top: 0.75em;
+    left: 1em; }
+  .flash-message--danger {
+    background-color: #E74C3C; }
+
 .footer-container {
   text-align: center;
   padding: 2em 0; }
@@ -284,26 +318,12 @@ body {
     color: #161A20;
     font-size: 0.875em; }
 
-.header-content {
-  text-align: center;
-  padding: 1.5em 1em 3.5em; }
-  .header-content__heading {
-    font-size: 1.5em; }
-  .header-content__hint {
-    font-size: 0.75em;
-    color: #95A5A6;
-    font-family: "Lato", Helvetica, sans-serif;
-    font-weight: 700; }
-    .header-content__hint a {
-      color: #F1C40F;
-      transition: opacity 250ms; }
-
 input:not([type="checkbox"]), textarea {
   width: 100%;
   height: 2.5em;
   background-color: transparent;
   font-size: 1em;
-  color: #5F696A;
+  color: #FFFFFF;
   outline: none;
   font-family: "Oxygen", Helvetica, sans-serif;
   -webkit-appearance: none;
@@ -486,7 +506,7 @@ label {
       outline: none;
       padding-right: 1.5em;
       font-size: 1em;
-      color: #5F696A; }
+      color: #FFFFFF; }
   .form-group__checkbox {
     cursor: pointer; }
     .form-group__checkbox > span {
@@ -731,6 +751,20 @@ label {
 
 .no-touch .form-group__slide:hover .icon-cancel {
   opacity: 1; }
+
+.header-content {
+  text-align: center;
+  padding: 1.5em 1em 3.5em; }
+  .header-content__heading {
+    font-size: 1.5em; }
+  .header-content__hint {
+    font-size: 0.75em;
+    color: #95A5A6;
+    font-family: "Lato", Helvetica, sans-serif;
+    font-weight: 700; }
+    .header-content__hint a {
+      color: #F1C40F;
+      transition: opacity 250ms; }
 
 @font-face {
   font-family: 'nuclear-icons';

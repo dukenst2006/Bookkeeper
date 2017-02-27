@@ -47,6 +47,10 @@ if (formButtons.length > 0) {
 
         if ((w.outerHeight() + w.scrollTop() - 16) < (fbT + 40)) {
             formButtons.css({'bottom': '16px', 'position': 'fixed'});
+
+            if (w.outerWidth() > 1088) {
+                formButtons.css({'right': 'calc(50% - 32em)'});
+            }
         } else {
             formButtons.css({'bottom': '', 'position': ''});
         }
@@ -56,7 +60,7 @@ if (formButtons.length > 0) {
         if (d.outerHeight() !== dH) {
             dH = d.outerHeight();
 
-            formButtons.css({'bottom': '', 'position': ''});
+            formButtons.css({'bottom': '', 'position': '', 'right': ''});
             fbT = formButtons.offset().top;
         }
     }
@@ -167,6 +171,51 @@ function readable_size(bytes) {
 function html_entities(str) {
     return $('<div/>').text(str).html();
 }
+;(function (window) {
+    'use strict';
+
+    /**
+     * Flash Constructor
+     *
+     * @param DOM Object
+     */
+    function Flash(el) {
+        this.el = el;
+
+        this._init();
+    }
+
+    Flash.prototype = {
+        _init: function() {
+            var self = this;
+
+            this.el.find('.flash-message').each(function() {
+                self._hideMessage($(this));
+            });
+        },
+        _hideMessage: function (message) {
+            setTimeout(function() {
+                message.addClass('flash-message--hidden');
+            }, 2500);
+
+            setTimeout(function () {
+                message.remove();
+            }, 5000);
+        },
+        addMessage: function(message, level) {
+            var flash = $('<div class="flash-message flash-message--' + level + '">' +
+                message + '<i class="flash-message__icon icon-status-' + (level === 'danger' ? 'withheld' : 'published') + '"></i></div>')
+                .appendTo(this.el);
+
+            this._hideMessage(flash);
+        }
+    };
+
+    window.Flash = Flash;
+
+})(window);
+
+window.flash = new Flash($('#flashContainer'));
 ;
 (function (window) {
     'use strict';

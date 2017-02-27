@@ -36,6 +36,10 @@ if (formButtons.length > 0) {
 
         if ((w.outerHeight() + w.scrollTop() - 16) < (fbT + 40)) {
             formButtons.css({'bottom': '16px', 'position': 'fixed'});
+
+            if (w.outerWidth() > 1088) {
+                formButtons.css({'right': 'calc(50% - 32em)'});
+            }
         } else {
             formButtons.css({'bottom': '', 'position': ''});
         }
@@ -45,7 +49,7 @@ if (formButtons.length > 0) {
         if (d.outerHeight() !== dH) {
             dH = d.outerHeight();
 
-            formButtons.css({'bottom': '', 'position': ''});
+            formButtons.css({'bottom': '', 'position': '', 'right': ''});
             fbT = formButtons.offset().top;
         }
     }

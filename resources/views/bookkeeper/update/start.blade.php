@@ -7,7 +7,7 @@
 
 @section('header_content')
     @include('partials.header', [
-        'headerTitle' => trans('update.index')
+        'headerTitle' => $pageTitle
     ])
 @endsection
 
