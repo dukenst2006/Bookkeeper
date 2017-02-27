@@ -1,5 +1,7 @@
 @extends('layout.base')
 
+@section('bodyClass', 'body--auth')
+
 @section('body')
 <main class="dialog-container dialog-container--small">
     <div class="dialog dialog--small">

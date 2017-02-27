@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300|Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
 </head>
-<body>
+<body class="body--auth">
 
     @yield('body')
 

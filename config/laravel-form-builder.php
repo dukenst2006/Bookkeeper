@@ -10,6 +10,6 @@ return [
     'select'        => 'fields.select',
 
     'custom_fields' => [
-        'password' => 'Reactor\Html\Fields\PasswordField',
+        'password' => 'Bookkeeper\Html\Fields\PasswordField',
     ]
 ];

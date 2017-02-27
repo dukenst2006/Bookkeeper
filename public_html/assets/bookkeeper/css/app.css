@@ -100,6 +100,9 @@ body {
   background-color: #272E36;
   position: relative; }
 
+.body--auth {
+  background-color: #FFFFFF; }
+
 .scroll-disabled {
   overflow: hidden; }
 
@@ -530,7 +533,7 @@ label {
   .form-group__checkbox-icon:before {
     font-size: 0.75em; }
   .form-group__password {
-    background-color: #F5F5F5;
+    background-color: #4A4F55;
     height: 0.25em;
     opacity: 0.7; }
     .form-group__password .password-strength {

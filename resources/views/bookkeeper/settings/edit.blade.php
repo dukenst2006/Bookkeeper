@@ -1,4 +1,4 @@
-@extends('layout.bookkeeper')
+@extends('layout.form')
 
 @php
     $currentSection = null;

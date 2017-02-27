@@ -11,6 +11,7 @@ Route::group(['middleware' => [
 {
     require_once 'routes/overview.php';
     require_once 'routes/people.php';
+    require_once 'routes/profile.php';
     require_once 'routes/settings.php';
     require_once 'routes/update.php';
 });

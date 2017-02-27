@@ -48,8 +48,8 @@
                     <div class="dropdown navigation-module__dropdown">
                         <div class="dropdown__info navigation-module__info">{{ uppercase($currentUser->first_name . ' ' . $currentUser->last_name) }}</div>
                         <ul class="dropdown-sub navigation-module-sub">
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="#"><i class="icon-profile"></i>{{ trans('users.update_profile') }}</a>
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="#"><i class="icon-lock"></i>{{ trans('users.change_password') }}</a>
+                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.profile.edit') }}"><i class="icon-profile"></i>{{ trans('users.update_profile') }}</a>
+                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.profile.password') }}"><i class="icon-lock"></i>{{ trans('users.change_password') }}</a>
                             <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.auth.logout') }}"><i class="icon-logout"></i>{{ trans('auth.logout') }}</a>
                         </ul>
                     </div>
