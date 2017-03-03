@@ -1,9 +1,5 @@
 @extends('users.base_index')
 
-@section('pageSubtitle')
-    {!! link_to_route('reactor.users.index', uppercase(trans('users.title'))) !!}
-@endsection
-
 @section('content_sortable_links')
     <th class="content-list__cell content-list__cell--head">
         {{ uppercase(trans('validation.attributes.name')) }}
