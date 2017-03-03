@@ -20,7 +20,6 @@ class UsersController extends BookkeeperController {
     protected $modelPath = User::class;
     protected $resourceMultiple = 'users';
     protected $resourceSingular = 'user';
-    protected $permissionKey = 'USERS';
 
     /**
      * Show the form for updating password.

@@ -143,5 +143,8 @@ return [
         'nationality'              => 'Uyruk',
         'national_id'              => 'Vatandaşlık Numarası',
         'additional'               => 'İlave Bilgi',
+        'company'                  => 'Şirket',
+        'job_title'                => 'İş Ünvanı',
+
     ]
 ];

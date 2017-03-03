@@ -143,6 +143,8 @@ return [
         'nationality'              => 'Nationality',
         'national_id'              => 'National Identifier',
         'additional'               => 'Additional Information',
+        'company'                  => 'Company',
+        'job_title'                => 'Job Title',
     ]
 
 ];

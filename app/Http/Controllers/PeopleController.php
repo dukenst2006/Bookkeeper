@@ -4,15 +4,21 @@
 namespace Bookkeeper\Http\Controllers;
 
 
+use Bookkeeper\CRM\Person;
+use Bookkeeper\Http\Controllers\Traits\BasicResource;
+use Bookkeeper\Http\Controllers\Traits\UsesPersonForms;
+
 class PeopleController extends BookkeeperController {
 
+    use BasicResource, UsesPersonForms;
+
     /**
-     * Shows the overview
+     * Self model path required for ModifiesPermissions
      *
-     * @return view
+     * @var string
      */
-    public function index() {
-        return $this->compileView('people.index');
-    }
+    protected $modelPath = Person::class;
+    protected $resourceMultiple = 'people';
+    protected $resourceSingular = 'person';
 
 }

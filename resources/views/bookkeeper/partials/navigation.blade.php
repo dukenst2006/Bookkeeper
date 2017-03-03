@@ -74,7 +74,7 @@
                     ] :
                     [
                         'bookkeeper.people.index' => 'people.title',
-                        'bookkeeper.people.create' => 'lists.title',
+                        'bookkeeper.lists.index' => 'lists.title',
                     ]
             ])
         @endif

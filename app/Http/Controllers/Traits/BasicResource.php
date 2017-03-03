@@ -158,8 +158,7 @@ trait BasicResource {
         return [
             'modelPath'        => $this->modelPath,
             'resourceMultiple' => $this->resourceMultiple,
-            'resourceSingular' => $this->resourceSingular,
-            'permissionKey'    => $this->permissionKey
+            'resourceSingular' => $this->resourceSingular
         ];
     }
 

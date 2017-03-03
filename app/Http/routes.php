@@ -9,6 +9,7 @@ Route::group(['middleware' => [
     'set-theme:' . config('themes.active')
 ]], function ()
 {
+    require_once 'routes/lists.php';
     require_once 'routes/overview.php';
     require_once 'routes/people.php';
     require_once 'routes/profile.php';

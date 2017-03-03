@@ -1,8 +1,8 @@
 @extends('layout.content')
 
 @php
-    $currentSection = null;
-    $currentRoute = null;
+$currentSection = null;
+$currentRoute = null;
 @endphp
 
 @section('actions')
