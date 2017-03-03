@@ -3,6 +3,7 @@
 namespace Bookkeeper\Http\Controllers\Traits;
 
 
+use Bookkeeper\CRM\PeopleList;
 use Bookkeeper\CRM\Person;
 use Illuminate\Http\Request;
 
@@ -45,6 +46,31 @@ trait UsesPersonForms {
     protected function validateEditForm(Request $request)
     {
         $this->validateForm('Bookkeeper\Html\Forms\People\EditForm', $request);
+    }
+
+    /**
+     * Creates a form for adding lists
+     *
+     * @param int $id
+     * @param Person $person
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getAddListForm($id, Person $person)
+    {
+        $form = $this->form('Bookkeeper\Html\Forms\Lists\AddListForm', [
+            'url' => route('bookkeeper.people.lists.associate', $id)
+        ]);
+
+        $choices = PeopleList::all()
+            ->diff($person->lists)
+            ->pluck('name', 'id')
+            ->toArray();
+
+        $form->modify('list', 'select', [
+            'choices' => $choices
+        ]);
+
+        return [$form, count($choices)];
     }
 
 }

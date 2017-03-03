@@ -65,4 +65,40 @@ class Person extends Eloquent {
         return $this->first_name . ' ' . $this->last_name;
     }
 
+    /**
+     * Lists relation
+     *
+     * @return Relation
+     */
+    public function lists()
+    {
+        return $this->belongsToMany(PeopleList::class);
+    }
+
+    /**
+     * Assign a list to the person by id
+     *
+     * @param int $id
+     * @return Role
+     */
+    public function assignListById($id)
+    {
+        return $this->lists()->attach(
+            PeopleList::findOrFail($id)
+        );
+    }
+
+    /**
+     * Retract a list from the person by id
+     *
+     * @param int $id
+     * @return Role
+     */
+    public function retractListById($id)
+    {
+        return $this->lists()->detach(
+            PeopleList::findOrFail($id)
+        );
+    }
+
 }

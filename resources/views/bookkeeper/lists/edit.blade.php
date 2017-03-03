@@ -9,5 +9,6 @@
         'currentRoute' => 'bookkeeper.lists.edit',
         'currentKey' => $list->getKey()
     ])
-    @parent
+
+    @include('partials.form')
 @endsection

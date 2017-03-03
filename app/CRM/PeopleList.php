@@ -53,4 +53,14 @@ class PeopleList extends Eloquent {
         ]
     ];
 
+    /**
+     * People relation
+     *
+     * @return Relation
+     */
+    public function people()
+    {
+        return $this->belongsToMany(Person::class);
+    }
+
 }

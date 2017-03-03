@@ -23,3 +23,5 @@
         @include('partials.footer')
     </main>
 @endsection
+
+@include('partials.modals.delete')

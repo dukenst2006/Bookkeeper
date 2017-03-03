@@ -21,4 +21,21 @@ class ListsController extends BookkeeperController {
     protected $resourceMultiple = 'lists';
     protected $resourceSingular = 'list';
 
+    /**
+     * List the specified resource people.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function people($id)
+    {
+        $list = PeopleList::findOrFail($id);
+
+        $people = $list->people()
+            ->sortable()
+            ->paginate();
+
+        return $this->compileView('lists.people', compact('list', 'people', 'count'), trans('people.title'));
+    }
+
 }

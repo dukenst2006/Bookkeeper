@@ -17,12 +17,6 @@ Route::delete('lists/destroy/bulk', [
     'uses' => 'ListsController@bulkDestroy',
     'as'   => 'bookkeeper.lists.destroy.bulk']);
 
-Route::get('lists/{id}/lists', [
+Route::get('lists/{id}/people', [
     'uses' => 'ListsController@people',
     'as'   => 'bookkeeper.lists.people']);
-Route::put('lists/{id}/lists', [
-    'uses' => 'ListsController@associatePeople',
-    'as'   => 'bookkeeper.lists.people.associate']);
-Route::delete('lists/{id}/lists', [
-    'uses' => 'ListsController@dissociatePeople',
-    'as'   => 'bookkeeper.lists.people.dissociate']);

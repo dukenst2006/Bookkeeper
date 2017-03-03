@@ -182,6 +182,8 @@ body {
     margin-top: -1em; }
     .content-inner__message--muted {
       color: #95A5A6; }
+  .content-inner--compact {
+    padding-top: 1.5em !important; }
 
 .content-inner .content-inner__options .dropdown-icon {
   position: relative;
@@ -197,6 +199,9 @@ body {
   box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.25);
   width: 100%;
   margin: 4.25em auto 0; }
+  .content-list-container--sub {
+    margin-top: 0;
+    box-shadow: none; }
 
 .content-list {
   width: 100%;
