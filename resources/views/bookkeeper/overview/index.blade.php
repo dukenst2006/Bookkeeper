@@ -2,7 +2,7 @@
 
 @php
 $currentSection = 'finance';
-$currentRoute = 'bookkeeper.overview.index';
+$currentRoute = 'bookkeeper.overview';
 @endphp
 
 @section('header_content')

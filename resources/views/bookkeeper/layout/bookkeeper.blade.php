@@ -6,7 +6,13 @@
     <main class="container-main" id="mainContainer">
         @include('partials.navigation')
 
-        @yield('header_content')
+        <div class="header container">
+            @yield('header_content')
+
+            <div class="header__actions">
+                @yield('actions')
+            </div>
+        </div>
 
         <div class="container">
             @include('partials.flash')

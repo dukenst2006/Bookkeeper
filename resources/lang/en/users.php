@@ -19,4 +19,6 @@ return [
     'updated_profile' => 'Updated profile.',
     'change_password' => 'Change Password',
     'changed_password' => 'Changed password.',
+
+    'new' => 'New User',
 ];

@@ -22,7 +22,8 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     public function provides()
     {
         return [
-            'reactor.builders.forms',
+            'bookkeeper.builders.contents',
+            'bookkeeper.builders.forms',
         ];
     }
 
@@ -33,7 +34,18 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
      */
     public function register()
     {
+        $this->registerContentsHtmlBuilder();
         $this->registerFormsHtmlBuilder();
+    }
+
+    /**
+     * Registers contents html builder
+     */
+    protected function registerContentsHtmlBuilder()
+    {
+        $this->app['bookkeeper.builders.contents'] = $this->app->share(function () {
+            return $this->app->make('Bookkeeper\Html\Builders\ContentsHtmlBuilder');
+        });
     }
 
     /**
@@ -41,7 +53,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
      */
     protected function registerFormsHtmlBuilder()
     {
-        $this->app['reactor.builders.forms'] = $this->app->share(function () {
+        $this->app['bookkeeper.builders.forms'] = $this->app->share(function () {
             return $this->app->make('Bookkeeper\Html\Builders\FormsHtmlBuilder');
         });
     }

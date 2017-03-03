@@ -1,6 +1,6 @@
 <div class="navigation-container">
     <div class="container">
-        <nav class="navigation">
+        <nav class="navigation {{ ($currentSection === 'finance' || $currentSection === 'crm') ? '' : 'navigation--padded' }}">
             <div class="navigation__sections">
                 @foreach([
                     'finance' => 'bookkeeper.overview',
@@ -19,10 +19,10 @@
                 <li class="navigation-module has-dropdown" data-hover="true">
                     <i class="navigation-module__icon dropdown-icon icon-user"></i>
                     <div class="dropdown navigation-module__dropdown">
-                        <div class="dropdown__info navigation-module__info">{{ uppercase(trans('users.title')) }}</div>
-                        <ul class="dropdown-sub navigation-module-sub">
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="#"><i class="icon-users"></i>{{ trans('users.index') }}</a></li>
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="#"><i class="icon-user-create"></i>{{ trans('users.create') }}</a></li>
+                        <div class="dropdown__info">{{ uppercase(trans('users.title')) }}</div>
+                        <ul class="dropdown-sub">
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.users.index') }}"><i class="icon-users"></i>{{ trans('users.index') }}</a></li>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.users.create') }}"><i class="icon-user-create"></i>{{ trans('users.create') }}</a></li>
                         </ul>
                     </div>
                 </li>
@@ -30,27 +30,25 @@
                 <li class="navigation-module has-dropdown" data-hover="true">
                     <i class="navigation-module__icon dropdown-icon icon-cog"></i>
                     <div class="dropdown navigation-module__dropdown">
-                        <div class="dropdown__info navigation-module__info">{{ uppercase(trans('settings.title')) }}</div>
-                        <ul class="dropdown-sub navigation-module-sub">
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.settings.edit') }}"><i class="icon-wrench"></i>{{ trans('settings.index') }}</a></li>
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.update.index') }}"><i class="icon-sync"></i>{{ trans('update.index') }}</a></li>
+                        <div class="dropdown__info">{{ uppercase(trans('settings.title')) }}</div>
+                        <ul class="dropdown-sub">
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.settings.edit') }}"><i class="icon-wrench"></i>{{ trans('settings.index') }}</a></li>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.update.index') }}"><i class="icon-sync"></i>{{ trans('update.index') }}</a></li>
                         </ul>
                     </div>
                 </li>
 
                 <li class="navigation-module navigation-user has-dropdown" data-hover="true">
                     <span class="navigation-user__avatar">
-                        {!! str_limit($currentUser->first_name, 1, '') .
-                            str_limit($currentUser->last_name, 1, '') .
-                            '<img src="http://www.gravatar.com/avatar/' . md5($currentUser->email) . '?d=blank">' !!}
+                        {!! $currentUser->presentAvatar() !!}
                     </span>
 
                     <div class="dropdown navigation-module__dropdown">
-                        <div class="dropdown__info navigation-module__info">{{ uppercase($currentUser->first_name . ' ' . $currentUser->last_name) }}</div>
-                        <ul class="dropdown-sub navigation-module-sub">
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.profile.edit') }}"><i class="icon-profile"></i>{{ trans('users.update_profile') }}</a>
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.profile.password') }}"><i class="icon-lock"></i>{{ trans('users.change_password') }}</a>
-                            <li class="dropdown-sub__item navigation-module-sub__item"><a href="{{ route('bookkeeper.auth.logout') }}"><i class="icon-logout"></i>{{ trans('auth.logout') }}</a>
+                        <div class="dropdown__info">{{ uppercase($currentUser->presentFullName()) }}</div>
+                        <ul class="dropdown-sub">
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.profile.edit') }}"><i class="icon-profile"></i>{{ trans('users.update_profile') }}</a>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.profile.password') }}"><i class="icon-lock"></i>{{ trans('users.change_password') }}</a>
+                            <li class="dropdown-sub__item"><a href="{{ route('bookkeeper.auth.logout') }}"><i class="icon-logout"></i>{{ trans('auth.logout') }}</a>
                         </ul>
                     </div>
                 </li>
@@ -69,10 +67,10 @@
             @include('partials.tabs', [
                 'flaps' => ($currentSection === 'finance') ?
                     [
-                        'bookkeeper.overview.index' => 'overview.index',
+                        'bookkeeper.overview' => 'overview.index',
                         'bookkeeper.people.index' => 'transactions.title',
                         'bookkeeper.people.create' => 'accounts.title',
-                        'bookkeeper.people.update' => 'tags.title',
+                        'bookkeeper.settings.edit' => 'tags.title',
                     ] :
                     [
                         'bookkeeper.people.index' => 'people.title',

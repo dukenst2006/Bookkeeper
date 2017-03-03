@@ -3,9 +3,13 @@
 namespace Bookkeeper\Users;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Kenarkose\Sortable\Sortable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
+
+    use Sortable, SearchableTrait;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +26,40 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    /**
+     * Sortable columns
+     *
+     * @var array
+     */
+    protected $sortableColumns = ['first_name', 'email', 'created_at'];
+
+    /**
+     * Default sortable key
+     *
+     * @var string
+     */
+    protected $sortableKey = 'first_name';
+
+    /**
+     * Default sortable direction
+     *
+     * @var string
+     */
+    protected $sortableDirection = 'asc';
+
+    /**
+     * Searchable columns.
+     *
+     * @var array
+     */
+    protected $searchable = [
+        'columns' => [
+            'first_name' => 10,
+            'last_name'  => 10,
+            'email'      => 10
+        ]
     ];
 
     /**
@@ -53,4 +91,17 @@ class User extends Authenticatable
 
         return $user;
     }
+
+    public function presentAvatar()
+    {
+        return str_limit($this->first_name, 1, '') .
+            str_limit($this->last_name, 1, '') .
+            '<img src="http://www.gravatar.com/avatar/' . md5($this->email) . '?d=blank">';
+    }
+
+    public function presentFullName()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
 }

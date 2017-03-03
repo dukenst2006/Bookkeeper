@@ -179,10 +179,11 @@ return [
         /*
          * Other Vendor Service Providers...
          */
+        Kenarkose\Sortable\SortableServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 

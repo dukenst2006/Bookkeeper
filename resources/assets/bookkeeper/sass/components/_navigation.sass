@@ -7,24 +7,28 @@
     position: relative
     +clearfix
 
+    @media screen and (max-width: $thresholdMicro)
+        &--padded
+            padding-bottom: 1em
+
     &__sections
         float: left
         padding-left: 1em
         +clearfix
 
     &__section
-        font-size: 0.875em
-        height: 3.43em
+        font-size: 0.75em
+        height: 4em
         font-family: $fontHeading
         font-weight: $fontWeightBold
-        padding: 0.875em 2em 1.125em
+        padding: 1em 2.25em 1.25em
         display: inline-block
         color: $colorMutedLess
         float: left
         +transition(background-color $durationShort)
 
         @media screen and (max-width: $thresholdCollapse)
-            padding: 0.875em 1.25em 1.125em
+            padding: 1em 1.5em 1.25em
 
         &--active
             color: $colorDarkBG1
@@ -79,19 +83,6 @@
     &__dropdown
         right: 0
         top: 3em
-        background-color: $colorDarkBG4
-        border-bottom-color: $colorDarkBG3
-
-    &__info
-        background-color: $colorDarkBG3
-        color: $colorLightText
-
-.navigation-module-sub
-    &__splitter
-        border-top: 1px solid $colorDarkBG3
-
-    &__item a
-        color: $colorLightText
 
 .navigation-user
     padding: 0.5em 0

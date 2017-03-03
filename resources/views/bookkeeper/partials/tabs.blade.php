@@ -3,11 +3,12 @@
         <ul class="tabs">
             @foreach($flaps as $route => $text)
                 <li class="tabs__flap">
-                    @if($currentRoute === $route)
-                        <span class="tabs__link tabs__link--active">{{ uppercase(trans($text)) }}</span>
-                    @else
-                        {!! link_to_route($route, uppercase(trans($text)), null, ['class' => 'tabs__link']) !!}
-                    @endif
+                    {!! link_to_route(
+                        $route,
+                        uppercase(trans($text)),
+                        isset($currentKey) ? $currentKey : [],
+                        ['class' => 'tabs__link' . (($currentRoute === $route) ? ' tabs__link--active' : '')]
+                    ) !!}
                 </li>
             @endforeach
         </ul>

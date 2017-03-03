@@ -19,4 +19,6 @@ return [
     'updated_profile' => 'Profil güncellendi.',
     'change_password' => 'Şifre Değiştir',
     'changed_password' => 'Şifre değiştirildi.',
+
+    'new' => 'Yeni Kullanıcı',
 ];
