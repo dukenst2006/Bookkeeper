@@ -2,8 +2,8 @@
 
 @section('content')
     @include('users.tabs', [
-        'currentRoute' => 'bookkeeper.users.password',
-        'currentKey' => $user->getKey()
+        'currentRoute' => 'bookkeeper.people.lists',
+        'currentKey' => $person->getKey()
     ])
     @parent
 @endsection

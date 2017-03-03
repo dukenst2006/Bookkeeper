@@ -18,11 +18,11 @@ Route::delete('people/destroy/bulk', [
     'as'   => 'bookkeeper.people.destroy.bulk']);
 
 Route::get('people/{id}/lists', [
-    'uses' => 'UsersController@lists',
+    'uses' => 'PeopleController@lists',
     'as'   => 'bookkeeper.people.lists']);
 Route::put('people/{id}/lists', [
-    'uses' => 'UsersController@associateList',
+    'uses' => 'PeopleController@associateList',
     'as'   => 'bookkeeper.people.lists.associate']);
 Route::delete('people/{id}/lists', [
-    'uses' => 'UsersController@dissociateList',
+    'uses' => 'PeopleController@dissociateList',
     'as'   => 'bookkeeper.people.lists.dissociate']);
