@@ -365,6 +365,12 @@ body {
   cursor: pointer;
   z-index: 10; }
 
+.pagination--inpage .pagination__sibling {
+  color: #161A20; }
+
+.pagination--inpage .pagination__current-container {
+  background-color: #1D232A; }
+
 .no-touch .content-list__row--body:hover {
   border-bottom-color: #F1C40F;
   background-color: #272E36; }
@@ -1020,7 +1026,7 @@ label {
 
 .header-content {
   text-align: center;
-  padding: 1.5em 1em 2.5em; }
+  padding: 1.5em 1em; }
   .header-content__heading {
     font-size: 1.5em; }
   .header-content__hint {
@@ -1652,10 +1658,7 @@ label {
   border-bottom-color: #272E36; }
 
 .tags-list-container {
-  padding: 0 2em; }
-  @media screen and (max-width: 48em) {
-    .tags-list-container {
-      padding: 0 1em; } }
+  padding: 0 1em; }
 
 .tags-list {
   font-size: 0.75em;

@@ -70,7 +70,7 @@
                         'bookkeeper.overview' => 'overview.index',
                         'bookkeeper.people.index' => 'transactions.title',
                         'bookkeeper.people.create' => 'accounts.title',
-                        'bookkeeper.settings.edit' => 'tags.title',
+                        'bookkeeper.tags.index' => 'tags.title',
                     ] :
                     [
                         'bookkeeper.people.index' => 'people.title',
