@@ -1,8 +1,8 @@
 @extends('layout.bookkeeper')
 
 @php
-    $currentSection = null;
-    $currentRoute = null;
+$currentSection = null;
+$currentRoute = null;
 @endphp
 
 @section('header_content')

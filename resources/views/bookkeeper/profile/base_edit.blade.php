@@ -2,7 +2,7 @@
 
 @section('header_content')
     @include('partials.header', [
-        'headerTitle' => $profile->first_name . ' ' . $profile->last_name
+        'headerTitle' => $profile->presentFullName()
     ])
 @endsection
 

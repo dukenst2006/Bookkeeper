@@ -1,19 +1,15 @@
 @extends('layout.form')
 
 @php
-    $currentSection = null;
-    $currentRoute = null;
+$currentSection = null;
+$currentRoute = null;
 @endphp
 
 @section('header_content')
     @include('partials.header', [
-        'headerTitle' => trans('users.create'),
+        'headerTitle' => $pageTitle,
         'headerHint' => link_to_route('bookkeeper.users.index', uppercase(trans('users.title')))
     ])
-@endsection
-
-@section('pageSubtitle')
-    {!! link_to_route('bookkeeper.users.index', uppercase(trans('users.title'))) !!}
 @endsection
 
 @section('form_buttons')

@@ -7,13 +7,9 @@ $currentRoute = 'bookkeeper.people.index';
 
 @section('header_content')
     @include('partials.header', [
-        'headerTitle' => trans('people.create'),
+        'headerTitle' => $pageTitle,
         'headerHint' => link_to_route('bookkeeper.people.index', uppercase(trans('people.title')))
     ])
-@endsection
-
-@section('pageSubtitle')
-    {!! link_to_route('bookkeeper.people.index', uppercase(trans('people.title'))) !!}
 @endsection
 
 @section('form_buttons')

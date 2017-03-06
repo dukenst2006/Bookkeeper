@@ -1,5 +1,11 @@
 @extends('lists.base_index')
 
+@section('header_content')
+    @include('partials.header', [
+        'headerTitle' => $pageTitle
+    ])
+@endsection
+
 @section('content_sortable_links')
     <th class="content-list__cell content-list__cell--head">
         {{ uppercase(trans('validation.attributes.name')) }}

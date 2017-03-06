@@ -7,13 +7,9 @@ $currentRoute = 'bookkeeper.lists.index';
 
 @section('header_content')
     @include('partials.header', [
-        'headerTitle' => trans('lists.create'),
+        'headerTitle' => $pageTitle,
         'headerHint' => link_to_route('bookkeeper.lists.index', uppercase(trans('lists.title')))
     ])
-@endsection
-
-@section('pageSubtitle')
-    {!! link_to_route('bookkeeper.lists.index', uppercase(trans('lists.title'))) !!}
 @endsection
 
 @section('form_buttons')

@@ -2,7 +2,7 @@
 
 @section('header_content')
     @include('partials.header', [
-        'headerTitle' => trans('people.index')
+        'headerTitle' => $pageTitle
     ])
 @endsection
 
