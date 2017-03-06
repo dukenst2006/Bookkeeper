@@ -145,6 +145,7 @@ return [
         'additional'               => 'Additional Information',
         'company'                  => 'Company',
         'job_title'                => 'Job Title',
+        'currency'                 => 'Currency',
     ]
 
 ];

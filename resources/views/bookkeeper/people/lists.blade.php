@@ -1,8 +1,5 @@
 @extends('people.base_edit')
-
-@php
-$_withForm = false;
-@endphp
+<?php $_withForm = false; ?>
 
 @section('content')
     @include('people.tabs', [

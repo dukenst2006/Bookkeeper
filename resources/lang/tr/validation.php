@@ -145,6 +145,6 @@ return [
         'additional'               => 'İlave Bilgi',
         'company'                  => 'Şirket',
         'job_title'                => 'İş Ünvanı',
-
+        'currency'                 => 'Para Birimi',
     ]
 ];

@@ -31,7 +31,8 @@ class SettingsController extends BookkeeperController {
             'url'    => route('bookkeeper.settings.update'),
             'model'  => [
                 'APP_LOCALE' => env('APP_LOCALE'),
-                'DEFAULT_CURRENCY' => env('DEFAULT_CURRENCY')
+                'DEFAULT_CURRENCY' => env('DEFAULT_CURRENCY'),
+                'DEFAULT_ACCOUNT' => env('DEFAULT_ACCOUNT')
             ]
         ]);
     }
@@ -49,6 +50,7 @@ class SettingsController extends BookkeeperController {
 
         $helper->setEnvVariable('APP_LOCALE', $request->input('APP_LOCALE'));
         $helper->setEnvVariable('DEFAULT_CURRENCY', $request->input('DEFAULT_CURRENCY'));
+        $helper->setEnvVariable('DEFAULT_ACCOUNT', $request->input('DEFAULT_ACCOUNT'));
 
         $this->notify('settings.edited');
 

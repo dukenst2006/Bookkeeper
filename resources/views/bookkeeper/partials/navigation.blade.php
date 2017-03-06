@@ -69,7 +69,7 @@
                     [
                         'bookkeeper.overview' => 'overview.index',
                         'bookkeeper.people.index' => 'transactions.title',
-                        'bookkeeper.people.create' => 'accounts.title',
+                        'bookkeeper.accounts.index' => 'accounts.title',
                         'bookkeeper.tags.index' => 'tags.title',
                     ] :
                     [

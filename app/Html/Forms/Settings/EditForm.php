@@ -4,6 +4,7 @@
 namespace Bookkeeper\Html\Forms\Settings;
 
 
+use Bookkeeper\Finance\Account;
 use Bookkeeper\Support\Currencies\CurrencyHelper;
 use Bookkeeper\Support\Install\InstallHelper;
 use Kris\LaravelFormBuilder\Form;
@@ -22,6 +23,12 @@ class EditForm extends Form {
             'rules' => 'required|in:' . implode(',', array_keys(CurrencyHelper::getCurrencies())),
             'choices' => CurrencyHelper::getCurrencies(),
             'label' => trans('currencies.default_currency')
+        ]);
+
+        $this->add('DEFAULT_ACCOUNT', 'select', [
+            'choices' => Account::sortable()->get()
+                ->pluck('name', 'id')->toArray(),
+            'label' => trans('currencies.default_account')
         ]);
     }
 

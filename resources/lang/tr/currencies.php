@@ -2,6 +2,7 @@
 
 return [
     'default_currency' => 'Öntanımlı Para Birimi',
+    'default_account' => 'Öntanımlı Hesap',
 
     'AUD' => 'Avustralya Doları',
     'BGN' => 'Bulgar Levası',

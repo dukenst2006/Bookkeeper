@@ -1,9 +1,9 @@
-@extends('tags.base_edit')
+@extends('accounts.base_edit')
 <?php $_withForm = false; ?>
 
 @section('content')
-    @include('tags.tabs', [
-        'currentRoute' => 'bookkeeper.tags.transactions',
+    @include('accounts.tabs', [
+        'currentRoute' => 'bookkeeper.accounts.transactions',
         'currentKey' => $tag->getKey()
     ])
 

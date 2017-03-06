@@ -2,6 +2,7 @@
 
 return [
     'default_currency' => 'Default Currency',
+    'default_account' => 'Default Account',
 
     'AUD' => 'Australian Dollar',
     'BGN' => 'Bulgarian Lev',
