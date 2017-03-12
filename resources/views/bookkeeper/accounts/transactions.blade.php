@@ -1,11 +1,13 @@
 @extends('accounts.base_edit')
-<?php $_withForm = false; ?>
+<?php $_withForm = false; $contentsListModifier = 'content-list-container--separated'; ?>
 
 @section('content')
     @include('accounts.tabs', [
         'currentRoute' => 'bookkeeper.accounts.transactions',
-        'currentKey' => $tag->getKey()
+        'currentKey' => $account->getKey()
     ])
 
-    OVERVIEW AND TRANSACTIONS
+    @parent
 @endsection
+
+@include('transactions.contents', ['currentAccountId' => $account->getKey()])

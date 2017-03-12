@@ -1,5 +1,5 @@
 @extends('tags.base_edit')
-<?php $_withForm = false; ?>
+<?php $_withForm = false; $contentsListModifier = 'content-list-container--separated'; ?>
 
 @section('content')
     @include('tags.tabs', [
@@ -7,5 +7,7 @@
         'currentKey' => $tag->getKey()
     ])
 
-    OVERVIEW AND TRANSACTIONS
+    @parent
 @endsection
+
+@include('transactions.contents')

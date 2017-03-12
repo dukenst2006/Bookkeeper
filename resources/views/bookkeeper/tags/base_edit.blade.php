@@ -1,4 +1,4 @@
-@extends('layout.' . ((isset($_withForm) && $_withForm === false) ? 'bookkeeper' : 'form'))
+@extends('layout.' . ((isset($_withForm) && $_withForm === false) ? 'content' : 'form'))
 
 @php
 $currentSection = 'finance';

@@ -56,7 +56,7 @@
 
                                 <h4 class="form-section__heading">{{ uppercase(trans('tags.title')) }}</h4>
                                 <ul class="tags-list tags-list--compact">
-
+                                    
                                 </ul>
 
 

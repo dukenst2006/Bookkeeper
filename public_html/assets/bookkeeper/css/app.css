@@ -398,7 +398,7 @@ body {
   position: relative;
   text-align: center; }
   .has-dropdown--active .dropdown {
-    z-index: 101;
+    z-index: 51;
     opacity: 1;
     transition: opacity 250ms; }
   .has-dropdown--active .dropdown-icon {
