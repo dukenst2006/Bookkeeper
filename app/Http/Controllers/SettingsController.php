@@ -32,7 +32,7 @@ class SettingsController extends BookkeeperController {
             'model'  => [
                 'APP_LOCALE' => env('APP_LOCALE'),
                 'DEFAULT_CURRENCY' => env('DEFAULT_CURRENCY'),
-                'DEFAULT_ACCOUNT' => env('DEFAULT_ACCOUNT')
+                'DEFAULT_ACCOUNT' => get_default_account()
             ]
         ]);
     }

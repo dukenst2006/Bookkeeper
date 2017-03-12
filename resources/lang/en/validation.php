@@ -143,9 +143,11 @@ return [
         'nationality'              => 'Nationality',
         'national_id'              => 'National Identifier',
         'additional'               => 'Additional Information',
+        'notes'                    => 'Notes',
         'company'                  => 'Company',
         'job_title'                => 'Job Title',
         'currency'                 => 'Currency',
+        'amount'                   => 'Amount',
+        'date'                     => 'Date'
     ]
-
 ];

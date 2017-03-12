@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="content-list-container">
+    <div class="content-list-container {{ $contentsListModifier or '' }}">
 
         {!! content_table_open() !!}
 

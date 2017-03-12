@@ -143,8 +143,11 @@ return [
         'nationality'              => 'Uyruk',
         'national_id'              => 'Vatandaşlık Numarası',
         'additional'               => 'İlave Bilgi',
+        'notes'                    => 'Notlar',
         'company'                  => 'Şirket',
         'job_title'                => 'İş Ünvanı',
         'currency'                 => 'Para Birimi',
+        'amount'                   => 'Miktar',
+        'date'                     => 'Tarih'
     ]
 ];

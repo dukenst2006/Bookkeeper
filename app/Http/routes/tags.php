@@ -12,6 +12,9 @@ Route::resource('tags', 'TagsController', ['except' => ['show'], 'names' => [
 Route::get('tags/search', [
     'uses' => 'TagsController@search',
     'as'   => 'bookkeeper.tags.search']);
+Route::post('tags/search', [
+    'uses' => 'TagsController@searchJson',
+    'as'   => 'bookkeeper.tags.search.json']);
 
 Route::get('tags/{id}/transactions', [
     'uses' => 'TagsController@transactions',

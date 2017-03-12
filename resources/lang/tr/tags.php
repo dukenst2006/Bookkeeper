@@ -17,4 +17,7 @@ return [
     'new' => 'Yeni Etiket',
     'no_tags' => 'Etiket bulunamadı.',
 
+    'type_to_add' => 'Etiket eklemek için yazın...',
+    'choose_from_results_to_add' => 'Eklemek için sonuçlardan seçin',
+
 ];

@@ -52,4 +52,14 @@ class Account extends Eloquent {
         ]
     ];
 
+    /**
+     * Transaction relation
+     *
+     * @return BelongsToMany
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
 }

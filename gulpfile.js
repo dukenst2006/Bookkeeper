@@ -29,13 +29,18 @@ elixir(function (mix) {
             'modals.js'
         ], elixir.config.publicPath + '/js/app.js')
         .scripts([
-            'vendor/datetimepicker.min.js',
             'passwords.js',
-            'searchers.js',
             'forms.js'
         ], elixir.config.publicPath + '/js/forms.js')
         .scripts([
             'updater.js'
         ], elixir.config.publicPath + '/js/updater.js')
+        .scripts([
+            'vendor/datetimepicker.min.js',
+            'amounts.js',
+            'searchers.js',
+            'tags.js',
+            'transactions.js',
+        ], elixir.config.publicPath + '/js/transactions.js')
     ;
 });

@@ -1,7 +1,7 @@
 .xdsoft_datetimepicker {
     box-shadow: $shadowDownLight;
-    background: $colorLightBG1;
-    color: $colorText;
+    background: $colorDarkBG1;
+    color: $colorLightText;
     padding: 8px 8px 4px 0;
     position: absolute;
     z-index: 200;
@@ -166,12 +166,12 @@
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box {
     height: 151px;
     overflow: hidden;
-    border: 1px solid $colorLightBG4
+    border: 1px solid $colorDarkBG4
 }
 
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div {
-    background: $colorLightBG2;
-    border-top: 1px solid $colorLightBG4;
+    background: $colorDarkBG2;
+    border-top: 1px solid $colorDarkBG4;
     color: $colorMutedLess;
     font-size: 12px;
     text-align: center;
@@ -199,7 +199,7 @@
     padding: 5px 3px;
     font-size: 14px;
     line-height: 20px;
-    background-color: $colorLightBG1;
+    background-color: $colorDarkBG1;
     float: left;
     width: 182px;
     text-align: center;
@@ -221,7 +221,7 @@
     top: 30px;
     z-index: 101;
     display: none;
-    background: $colorLightBG1;
+    background: $colorDarkBG1;
     max-height: 160px;
     overflow-y: hidden
 }
@@ -235,7 +235,7 @@
 }
 
 .xdsoft_datetimepicker .xdsoft_label > .xdsoft_select > div > .xdsoft_option:hover {
-    color: $colorLightBG1;
+    color: $colorDarkBG1;
     background: $colorOutline
 }
 
@@ -246,7 +246,7 @@
 
 .xdsoft_datetimepicker .xdsoft_label > .xdsoft_select > div > .xdsoft_option.xdsoft_current {
     background: $colorEmphasis;
-    color: $colorLightBG1;
+    color: $colorDarkBG1;
     font-weight: 700
 }
 
@@ -279,8 +279,8 @@
 
 .xdsoft_datetimepicker .xdsoft_calendar td, .xdsoft_datetimepicker .xdsoft_calendar th {
     width: 14.2857142%;
-    background: $colorLightBG2;
-    border: 1px solid $colorLightBG4;
+    background: $colorDarkBG2;
+    border: 1px solid $colorDarkBG4;
     color: $colorMutedLess;
     font-size: 12px;
     text-align: right;
@@ -296,7 +296,7 @@
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar th {
-    background: $colorLightBG3
+    background: $colorDarkBG3
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today {
@@ -305,7 +305,7 @@
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current {
     background: $colorEmphasis;
-    color: $colorLightBG1;
+    color: $colorDarkBG1;
     font-weight: 700
 }
 
@@ -321,14 +321,14 @@
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
-    color: $colorLightBG1 !important;
+    color: $colorDarkBG1 !important;
     background: $colorOutline !important;
     box-shadow: none !important
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current.xdsoft_disabled:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current.xdsoft_disabled:hover {
     background: $colorEmphasis !important;
-    color: $colorLightBG1 !important
+    color: $colorDarkBG1 !important
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_disabled:hover {
@@ -353,7 +353,7 @@
 }
 
 .xdsoft_datetimepicker .xdsoft_copyright a {
-    color: $colorLightBG4 !important
+    color: $colorDarkBG4 !important
 }
 
 .xdsoft_datetimepicker .xdsoft_copyright a:hover {
@@ -386,9 +386,9 @@
 
 .xdsoft_datetimepicker .xdsoft_save_selected {
     display: block;
-    border: 1px solid $colorLightBG4 !important;
+    border: 1px solid $colorDarkBG4 !important;
     margin-top: 5px;
     width: 100%;
-    color: $colorDarkBG4;
+    color: $colorLightText;
     font-size: 13px
 }

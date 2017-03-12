@@ -23,28 +23,10 @@ label
 .form-column
     &--full
         width: 100%
-    &--primary
-        width: 67.5%
-        padding: 2em
-        @media screen and (max-width: $thresholdShrink)
-            width: 100%
-        @media screen and (max-width: $thresholdMicro)
-            padding: 2em 1em
-    &--secondary
-        width: 32.5%
-        position: relative
-        z-index: 2
-        padding: 3em 2em 2em 1.5em
-        @media screen and (max-width: $thresholdShrink)
-            width: 100%
-            border-left: 0
-            border-top: 1px solid $colorLightBG4
-            background-color: $colorLightBG2
-
 
 .form-column-bg-secondary
     +position(absolute, 0 0 null null)
-    width: 32.5%
+    width: 37.5%
     border-left: 1px solid $colorLightBG4
     background-color: $colorLightBG2
     height: 100%
@@ -65,7 +47,7 @@ label
     &--full
         width: 100%
     &--field
-        width: 65%
+        width: 60%
         @media screen and (max-width: $thresholdMicro)
             width: 100%
 
@@ -112,7 +94,7 @@ label
         font-size: 0.875em
         font-weight: 700
         font-family: $fontHeading
-        color: $colorMuted
+        color: $colorOutline
         +transition(color $durationShort)
         padding-left: 1em
         position: relative
@@ -148,7 +130,6 @@ label
 
     textarea
         max-width: 28em
-        min-height: 6em
         resize: vertical
         margin-top: 0.5em
 
@@ -337,7 +318,7 @@ label
             border-bottom-color: $colorOutline
 
         input:not([type="checkbox"]), textarea, select
-            color: $colorLightText
+            color: $colorOutline
 
 .related-items
     background-color: $colorLightBG1
@@ -385,7 +366,7 @@ label
     &__results
         +position(absolute, 2.5em null null 0)
         width: 100%
-        background-color: $colorLightBG1
+        background-color: $colorDarkBG1
         box-shadow: $shadowDownLight
         z-index: 100
 

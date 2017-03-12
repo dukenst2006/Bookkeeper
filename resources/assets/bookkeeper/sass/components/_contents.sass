@@ -136,9 +136,20 @@
     font-size: 1.25em
     padding: 3em 0
 
-.content-list-container--sub .content-list
-    top: 0
-    margin-bottom: 0
+.content-list-container
+    position: relative
+
+    &--separated::before
+        +position(absolute, -4.25em null null 0)
+        content: ''
+        display: block
+        width: 100%
+        height: 1px
+        border-top: 1px solid $colorEmphasis
+
+    &--sub .content-list
+        top: 0
+        margin-bottom: 0
 
 .sortable-links
     font-size: 0.75em

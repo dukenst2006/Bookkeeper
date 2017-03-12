@@ -1,5 +1,11 @@
 @extends('tags.base_index')
 
+@section('header_content')
+    @include('partials.header', [
+        'headerTitle' => $pageTitle
+    ])
+@endsection
+
 @section('content')
     <div class="tags-list-container">
         @include('tags.list')

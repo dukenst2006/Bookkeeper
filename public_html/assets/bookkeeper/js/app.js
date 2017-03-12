@@ -22,6 +22,15 @@ $(window).on('resize.scroller', function () {
     $('.scroller').perfectScrollbar('update');
 });
 
+// GENERAL LABEL HIGHLIGHTERS
+$('.form-group input, .form-group textarea').focus(function () {
+    $(this).closest('.form-group').find('.form-group__label').addClass('form-group__label--focus');
+});
+
+$('.form-group input, .form-group textarea').blur(function () {
+    $(this).closest('.form-group').find('.form-group__label').removeClass('form-group__label--focus');
+});
+
 // PAGINATION SELECTORS
 $('.pagination__selector').on('change', function () {
     window.location = $(this).val();
@@ -170,6 +179,38 @@ function readable_size(bytes) {
  */
 function html_entities(str) {
     return $('<div/>').text(str).html();
+}
+
+/**
+ * Returns the currency name for account id
+ *
+ * @param string
+ * @return string
+ */
+function getCurrencyFor(id) {
+    for (var key in window.accountCurrencies) {
+        if (window.accountCurrencies.hasOwnProperty(key) && key == id) {
+            return window.accountCurrencies[key];
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Returns the decimal place for currency name
+ *
+ * @param string
+ * @return int
+ */
+function getDecimalPlaceFor(currency) {
+    if (['JPY'].indexOf(currency) > -1) {
+        return 0;
+    } else if (['CNY'].indexOf(currency) > -1) {
+        return 1;
+    }
+
+    return 2;
 }
 ;(function (window) {
     'use strict';
@@ -348,6 +389,7 @@ window.dropdowns = new Dropdown();
             this.el = el;
             this.triggers = triggers;
             this.current = null;
+            this.actionsDisabled = false;
 
             this.options = $.extend({
                 onCreateEvent: function () {
@@ -440,6 +482,10 @@ window.dropdowns = new Dropdown();
         },
         // Open modal
         openModal: function () {
+            if (this.actionsDisabled) {
+                return;
+            }
+
             var el = $(this.el),
                 self = this;
 
@@ -464,6 +510,10 @@ window.dropdowns = new Dropdown();
         },
         // Close modal
         closeModal: function () {
+            if (this.actionsDisabled) {
+                return;
+            }
+
             var el = $(this.el);
 
             if (this.isOpen) {

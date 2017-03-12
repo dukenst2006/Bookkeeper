@@ -56,3 +56,35 @@ function readable_size(bytes) {
 function html_entities(str) {
     return $('<div/>').text(str).html();
 }
+
+/**
+ * Returns the currency name for account id
+ *
+ * @param string
+ * @return string
+ */
+function getCurrencyFor(id) {
+    for (var key in window.accountCurrencies) {
+        if (window.accountCurrencies.hasOwnProperty(key) && key == id) {
+            return window.accountCurrencies[key];
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Returns the decimal place for currency name
+ *
+ * @param string
+ * @return int
+ */
+function getDecimalPlaceFor(currency) {
+    if (['JPY'].indexOf(currency) > -1) {
+        return 0;
+    } else if (['CNY'].indexOf(currency) > -1) {
+        return 1;
+    }
+
+    return 2;
+}

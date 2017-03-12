@@ -17,4 +17,7 @@ return [
     'new' => 'New Tag',
     'no_tags' => 'No tags were found.',
 
+    'type_to_add' => 'Type to add tags...',
+    'choose_from_results_to_add' => 'Choose from results to add',
+
 ];

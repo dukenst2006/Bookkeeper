@@ -9,7 +9,7 @@ $durationModalUp: 350ms
     +transition(opacity $durationModal, z-index 0ms ease $durationModalUp)
 
     &--open
-        z-index: 500
+        z-index: 100
         opacity: 1
         +transition(opacity $durationModal)
         cursor: pointer
@@ -41,6 +41,11 @@ $durationModalUp: 350ms
         font-weight: $fontWeightLight
         color: $colorEmphasis
         margin-bottom: 1.5em
+
+        &--danger
+            color: $colorDanger
+        &--success
+            color: $colorSuccess
 
     &__message
         margin-bottom: 1em

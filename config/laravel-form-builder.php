@@ -11,5 +11,7 @@ return [
 
     'custom_fields' => [
         'password' => 'Bookkeeper\Html\Fields\PasswordField',
+        'datetime' => 'Bookkeeper\Html\Fields\DatetimeField',
+        'amount' => 'Bookkeeper\Html\Fields\AmountField',
     ]
 ];

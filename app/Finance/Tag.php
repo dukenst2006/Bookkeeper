@@ -51,4 +51,14 @@ class Tag extends Eloquent {
         ]
     ];
 
+    /**
+     * Transactions relation
+     *
+     * @return BelongsToMany
+     */
+    public function transactions()
+    {
+        return $this->belongsToMany(Transaction::class);
+    }
+
 }

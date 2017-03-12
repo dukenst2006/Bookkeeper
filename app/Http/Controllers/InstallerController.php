@@ -143,6 +143,9 @@ class InstallerController extends Controller {
         Artisan::call('key:generate');
         $helper->setEnvVariable('APP_STATUS', 'INSTALLED');
 
+        Artisan::call('route:cache');
+        Artisan::call('optimize');
+
         return redirect()->route('install-complete');
     }
 

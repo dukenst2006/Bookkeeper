@@ -55,12 +55,14 @@
 
             </ul>
 
+            {{--
             <form class="navigation__search" method="GET" action="#">
                 <input type="search" name="q" id="keywords" placeholder="{{ trans('general.search') }}..." required>
                 <label class="navigation__search-label icon-label" for="keywords">
                     <i class="icon-search"></i>
                 </label>
             </form>
+            --}}
         </nav>
 
         @if($currentSection === 'finance' || $currentSection === 'crm')
@@ -68,7 +70,7 @@
                 'flaps' => ($currentSection === 'finance') ?
                     [
                         'bookkeeper.overview' => 'overview.index',
-                        'bookkeeper.people.index' => 'transactions.title',
+                        'bookkeeper.transactions.index' => 'transactions.title',
                         'bookkeeper.accounts.index' => 'accounts.title',
                         'bookkeeper.tags.index' => 'tags.title',
                     ] :

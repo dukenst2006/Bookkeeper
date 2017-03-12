@@ -18,6 +18,7 @@
             this.el = el;
             this.triggers = triggers;
             this.current = null;
+            this.actionsDisabled = false;
 
             this.options = $.extend({
                 onCreateEvent: function () {
@@ -110,6 +111,10 @@
         },
         // Open modal
         openModal: function () {
+            if (this.actionsDisabled) {
+                return;
+            }
+
             var el = $(this.el),
                 self = this;
 
@@ -134,6 +139,10 @@
         },
         // Close modal
         closeModal: function () {
+            if (this.actionsDisabled) {
+                return;
+            }
+
             var el = $(this.el);
 
             if (this.isOpen) {

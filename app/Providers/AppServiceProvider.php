@@ -2,6 +2,7 @@
 
 namespace Bookkeeper\Providers;
 
+use Bookkeeper\Finance\Account;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
@@ -16,6 +17,8 @@ class AppServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->registerHelpers();
+
+        $this->registerCurrencyHelper();
     }
 
     /**
@@ -26,6 +29,16 @@ class AppServiceProvider extends ServiceProvider {
         require_once __DIR__ . '/../Support/helpers.php';
 
         require_once __DIR__ . '/../Html/Builders/snippets.php';
+    }
+
+    /**
+     * Registers the currency helper
+     */
+    public function registerCurrencyHelper()
+    {
+        $this->app['bookkeeper.support.currency'] = $this->app->share(function () {
+            return $this->app->make('Bookkeeper\Support\Currencies\CurrencyHelper');
+        });
     }
 
     /**
@@ -49,6 +62,17 @@ class AppServiceProvider extends ServiceProvider {
         view()->composer('*', function ($view)
         {
             $view->with('currentUser', auth()->user());
+        });
+
+        view()->composer('transactions.create', function ($view)
+        {
+            $view->with('accountCurrencies', Account::all()
+                ->pluck('currency', 'id')->toArray());
+        });
+        view()->composer('transactions.edit', function ($view)
+        {
+            $view->with('accountCurrencies', Account::all()
+                ->pluck('currency', 'id')->toArray());
         });
     }
 

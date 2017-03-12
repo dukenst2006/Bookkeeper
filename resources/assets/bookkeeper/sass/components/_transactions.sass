@@ -1,0 +1,162 @@
+.transaction-buttons
+    +position(fixed, null calc(50% - 34em) 2em null)
+    padding-right: 2em
+    @media screen and (max-width: 68em)
+        right: 0
+
+    &__button
+        display: inline-block
+        box-shadow: $shadowDown
+        border-radius: 50%
+        +transition(opacity $durationShort)
+        position: relative
+
+        &::before, &::after
+            content: ''
+            display: block
+            +position(absolute, 50% null null 50%)
+            background-color: $colorLightText
+
+        &::before
+            height: 2px
+            margin-top: -1px
+            width: 1em
+            margin-left: -0.5em
+
+        &--income
+            +size(3em)
+            background-color: $colorSuccess
+
+            &::after
+                height: 1em
+                margin-top: -0.5em
+                width: 2px
+                margin-left: -1px
+
+        &--expense
+            +size(2.25em)
+            background-color: $colorDanger
+            margin: 0.375em 0.75em
+
+.transaction-modal
+    width: 45em
+    height: 34em
+    padding-bottom: 4em
+
+    @media screen and (max-width: 45em)
+        width: 100%
+    @media screen and (max-height: 34em)
+        height: 100%
+    @media screen and (max-width: $thresholdMicro)
+        +size(100%)
+
+    &--income
+        .modal__heading--danger
+            display: none
+    &--expense
+        .modal__heading--success
+            display: none
+
+    &__column
+        display: inline-block
+        width: 50%
+        vertical-align: top
+
+        &--main
+            padding-right: 1.5em
+        &--meta
+            padding-left: 1.5em
+
+        @media screen and (max-width: $thresholdMicro)
+            width: 100%
+            padding: 0
+            display: block
+
+    &__received
+        margin-left: -0.625em
+
+    &__loader
+        +position(absolute, 0 null null 0)
+        +size(100%)
+        z-index: -1
+        opacity: 0
+        background: url(../img/nuclear-loading.svg) rgba($colorDarkBG2, 0.9) no-repeat center center
+        background-size: 3em 3em
+        +transition(opacity $durationMedium, z-index 0ms ease $durationMediumUp)
+
+        &--active
+            opacity: 1
+            z-index: 300
+            +transition(opacity $durationMedium)
+
+    &__flash
+        position: relative
+        top: -2.5em
+        color: $colorDanger
+        font-size: 0.875em
+        opacity: 0
+        +transition(opacity $durationMedium)
+        margin-bottom: -0.5em
+
+        &--active
+            opacity: 1
+
+.amount-field
+    position: relative
+
+    &__input
+        padding-right: 3em
+        &--blur
+            border-bottom-color: $colorEmphasis !important
+
+    &__value
+        z-index: 10
+        +position(absolute, 0 null null 0)
+        opacity: 0
+        padding-right: 3em
+        user-select: none
+
+    &__currency
+        +position(absolute, 0 0 null null)
+        z-index: 11
+        display: inline-block
+        width: 2.5em
+        height: 100%
+        text-align: right
+        line-height: 2.5em
+        vertical-align: middle
+
+.transaction-thumbnail
+    +size(1em)
+    margin: 0.5em 0.375em
+    border-radius: 50%
+    display: inline-block
+
+    &--income
+        border: 1px solid $colorSuccess
+    &--income-received
+        background-color: $colorSuccess
+    &--expense
+        border: 1px solid $colorDanger
+    &--expense-received
+        background-color: $colorDanger
+
+.transaction-tags
+    +position(absolute, 0 0 null null)
+    width: 37.5%
+    height: 100%
+    border-left: 1px solid $colorDarkBG2
+    background-color: $colorDarkBG3
+    padding: 3em 2em
+
+    @media screen and (max-width: $thresholdMicro)
+        width: 100%
+        position: static
+        border-left: 0
+        padding: 0
+        background-color: transparent
+        height: auto
+
+.no-touch
+    .transaction-buttons__button:hover
+        opacity: 0.7

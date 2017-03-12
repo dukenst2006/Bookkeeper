@@ -3,7 +3,7 @@
 if ( ! function_exists('is_installed'))
 {
     /**
-     * Checks if Nuclear is installed
+     * Checks if Bookkeeper is installed
      *
      * @return bool
      */
@@ -16,7 +16,7 @@ if ( ! function_exists('is_installed'))
 if ( ! function_exists('is_request_install'))
 {
     /**
-     * Checks if the request is a reactor request
+     * Checks if the request is a install request
      *
      * @return bool
      */
@@ -77,5 +77,50 @@ if ( ! function_exists('get_full_locale_for'))
         $locale = config('app.full_locales.' . $locale);
 
         return $trim ? rtrim($locale, '.UTF-8') : $locale;
+    }
+}
+
+if ( ! function_exists('get_accounts_list'))
+{
+    /**
+     * Returns the account name to id list
+     *
+     * @return bool
+     */
+    function get_accounts_list()
+    {
+        return \Bookkeeper\Finance\Account::sortable()
+            ->get()
+            ->pluck('name', 'id')
+            ->toArray();
+    }
+}
+
+if ( ! function_exists('get_default_account'))
+{
+    /**
+     * Returns the default account
+     *
+     * @return bool
+     */
+    function get_default_account()
+    {
+        return env('DEFAULT_ACCOUNT');
+    }
+}
+
+if ( ! function_exists('currency_string_for'))
+{
+    /**
+     * Returns the amount with currency presentation
+     *
+     * @param int $amount
+     * @param int $accountId
+     * @return string
+     */
+    function currency_string_for($amount, $accountId)
+    {
+        return app('bookkeeper.support.currency')
+            ->currencyStringFor($amount, $accountId);
     }
 }

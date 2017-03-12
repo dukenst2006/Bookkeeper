@@ -1,5 +1,5 @@
 @extends('lists.base_edit')
-<?php $_withForm = false; ?>
+<?php $_withForm = false; $contentsListModifier = 'content-list-container--separated' ?>
 
 @section('content')
     @include('lists.tabs', [

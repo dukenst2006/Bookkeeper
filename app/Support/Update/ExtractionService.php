@@ -222,9 +222,9 @@ class ExtractionService {
     {
         $updateables = $this->updateableFiles;
 
-        // Add reactor_assets relative to base path
+        // Add bookkeeper assets relative to base path
         $publicDir = str_replace(base_path() . '/', '', public_path());
-        $updateables[] = $publicDir . '/assets/reactor';
+        $updateables[] = $publicDir . '/assets/bookkeeper';
 
         return $updateables;
     }

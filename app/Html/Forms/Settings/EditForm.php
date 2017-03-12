@@ -26,8 +26,7 @@ class EditForm extends Form {
         ]);
 
         $this->add('DEFAULT_ACCOUNT', 'select', [
-            'choices' => Account::sortable()->get()
-                ->pluck('name', 'id')->toArray(),
+            'choices' => get_accounts_list(),
             'label' => trans('currencies.default_account')
         ]);
     }
