@@ -7,6 +7,8 @@ namespace Bookkeeper\Http\Controllers;
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Finance\Tag;
 use Bookkeeper\Http\Controllers\Traits\UsesTagForms;
+use Bookkeeper\Support\Currencies\Cruncher;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TagsController extends BookkeeperController {
@@ -23,7 +25,7 @@ class TagsController extends BookkeeperController {
     protected $resourceSingular = 'tag';
 
     /**
-     * List the specified resource fields.
+     * Shows transactions for the tag.
      *
      * @param int $id
      * @return Response
@@ -36,6 +38,32 @@ class TagsController extends BookkeeperController {
             ->sortable()->paginate();
 
         return $this->compileView('tags.transactions', compact('tag', 'transactions'), trans('transactions.title'));
+    }
+
+    /**
+     * Shows transactions for the tag.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function overview($id)
+    {
+        $tag = Tag::findOrFail($id);
+
+        $start = Carbon::now()->endOfMonth()->subYear()->addSecond();
+        $end = Carbon::now()->endOfMonth();
+
+        $transactions = $tag->transactions()
+            ->whereReceived(1)
+            ->whereBetween('created_at', [$start, $end])
+            ->get();
+
+        $statistics = (new Cruncher())
+            ->compileStatisticsFor($transactions, $start, $end);
+
+        dd($statistics);
+
+        return $this->compileView('tags.overview', compact('tag', 'statistics'), trans('overview.index'));
     }
 
     /**

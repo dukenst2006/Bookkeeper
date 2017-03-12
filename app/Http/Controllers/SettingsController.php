@@ -52,6 +52,9 @@ class SettingsController extends BookkeeperController {
         $helper->setEnvVariable('DEFAULT_CURRENCY', $request->input('DEFAULT_CURRENCY'));
         $helper->setEnvVariable('DEFAULT_ACCOUNT', $request->input('DEFAULT_ACCOUNT'));
 
+        // Forget the currency rates cache since default account may have been changed
+        \Cache::forget('bookkeeper.currency.rates');
+
         $this->notify('settings.edited');
 
         return redirect()->back();

@@ -7,6 +7,8 @@ namespace Bookkeeper\Http\Controllers;
 use Bookkeeper\Http\Controllers\Traits\BasicResource;
 use Bookkeeper\Finance\Account;
 use Bookkeeper\Http\Controllers\Traits\UsesAccountForms;
+use Bookkeeper\Support\Currencies\Cruncher;
+use Carbon\Carbon;
 
 class AccountsController extends BookkeeperController {
 
@@ -22,7 +24,7 @@ class AccountsController extends BookkeeperController {
     protected $resourceSingular = 'account';
 
     /**
-     * List the specified resource fields.
+     * Shows transactions for the account.
      *
      * @param int $id
      * @return Response
@@ -35,6 +37,32 @@ class AccountsController extends BookkeeperController {
             ->sortable()->paginate();
 
         return $this->compileView('accounts.transactions', compact('account', 'transactions'), trans('transactions.title'));
+    }
+
+    /**
+     * Shows overview for the account.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function overview($id)
+    {
+        $account = Account::findOrFail($id);
+
+        $start = Carbon::now()->endOfMonth()->subYear()->addSecond();
+        $end = Carbon::now()->endOfMonth();
+
+        $transactions = $account->transactions()
+            ->whereReceived(1)
+            ->whereBetween('created_at', [$start, $end])
+            ->get();
+
+        $statistics = (new Cruncher())
+            ->compileAccountStatisticsFor($transactions, $account, $start, $end);
+
+        dd($statistics);
+
+        return $this->compileView('accounts.overview', compact('account', 'statistics'), trans('overview.index'));
     }
 
 }

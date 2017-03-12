@@ -17,6 +17,10 @@ Route::delete('accounts/destroy/bulk', [
     'uses' => 'AccountsController@bulkDestroy',
     'as'   => 'bookkeeper.accounts.destroy.bulk']);
 
+Route::get('accounts/{id}/overview', [
+    'uses' => 'AccountsController@overview',
+    'as'   => 'bookkeeper.accounts.overview']);
+
 Route::get('accounts/{id}/transactions', [
     'uses' => 'AccountsController@transactions',
     'as'   => 'bookkeeper.accounts.transactions']);

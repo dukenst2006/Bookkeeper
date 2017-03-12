@@ -5,6 +5,7 @@ namespace Bookkeeper\Support\Currencies;
 
 
 use Bookkeeper\Finance\Account;
+use Cache;
 
 class CurrencyHelper {
 
@@ -70,6 +71,41 @@ class CurrencyHelper {
     public function __construct()
     {
         $this->base = env('DEFAULT_CURRENCY');
+    }
+
+    /**
+     * Returns the exchange rate for account
+     *
+     * @param int $accountId
+     * @return float
+     */
+    public function getRateFor($accountId)
+    {
+        $account = $this->getAccount($accountId);
+
+        $rates = $this->getAllRates();
+
+        // If the currency does not exist, it should be the base
+        return isset($rates[$account->currency]) ? $rates[$account->currency] : 1;
+    }
+
+    /**
+     * Gets all exchange rates for the base and caches them for a day
+     *
+     * @return array
+     */
+    protected function getAllRates()
+    {
+        if ( ! Cache::has('bookkeeper.currency.rates'))
+        {
+            $defaultAccount = $this->getAccount(get_default_account());
+
+            $json = file_get_contents('http://api.fixer.io/latest?base=' . $defaultAccount->currency);
+
+            Cache::put('bookkeeper.currency.rates', json_decode($json, true)['rates'], 1440);
+        }
+
+        return Cache::get('bookkeeper.currency.rates');
     }
 
     /**

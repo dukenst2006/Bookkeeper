@@ -4,7 +4,7 @@
         <li class="tag">
 
             <span class="tag__text">
-                {!! link_to_route('bookkeeper.tags.transactions', $tag->name, $tag->getKey()) !!}
+                {!! link_to_route('bookkeeper.tags.overview', $tag->name, $tag->getKey()) !!}
             </span>
 
             <form action="{{ route('bookkeeper.tags.destroy', $tag->getKey()) }}" method="POST" class="tag__option delete-form">

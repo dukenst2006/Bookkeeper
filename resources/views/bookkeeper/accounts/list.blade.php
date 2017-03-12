@@ -4,7 +4,7 @@
         {!! content_list_thumbnail($account->getKey()) !!}
 
         <td class="content-list__cell">
-            {!! link_to_route('bookkeeper.accounts.transactions', $account->name, $account->getKey()) !!}
+            {!! link_to_route('bookkeeper.accounts.overview', $account->name, $account->getKey()) !!}
         </td>
         <td class="content-list__cell content-list__cell--secondary">
             {{ $account->currency }}

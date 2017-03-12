@@ -19,3 +19,7 @@ Route::post('tags/search', [
 Route::get('tags/{id}/transactions', [
     'uses' => 'TagsController@transactions',
     'as'   => 'bookkeeper.tags.transactions']);
+
+Route::get('tags/{id}/overview', [
+    'uses' => 'TagsController@overview',
+    'as'   => 'bookkeeper.tags.overview']);

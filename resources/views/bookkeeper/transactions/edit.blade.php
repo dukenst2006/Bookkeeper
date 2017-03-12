@@ -36,7 +36,7 @@ $currentRoute = 'bookkeeper.transactions.index';
                     @foreach($transaction->tags as $tag)
                         <li class="tag" data-tagid="{{ $tag->getKey() }}">
                             <span class="tag__text">
-                                {!! link_to_route('bookkeeper.tags.transactions', $tag->name, $tag->getKey(), ['target' => '_blank']) !!}
+                                {!! link_to_route('bookkeeper.tags.overview', $tag->name, $tag->getKey(), ['target' => '_blank']) !!}
                             </span>
 
                             <span class="tag__option tag__option--detach">
