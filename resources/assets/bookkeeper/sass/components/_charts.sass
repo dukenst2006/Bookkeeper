@@ -1,0 +1,24 @@
+.chart
+    background-color: $colorDarkBG1
+    color: $colorLightText
+    padding-top: 1em
+    position: relative
+    padding-bottom: 30%
+
+    &__info
+        text-align: center
+        font-size: 0.5em
+        color: $colorMutedLess
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+
+    &__container
+        +position(absolute, 3.5em null null 0)
+        width: 100%
+        padding: 0 3em
+        +transition(opacity $durationMedium, z-index 0ms ease $durationMediumUp)
+
+        @media screen and (max-width: $thresholdCollapse)
+            padding: 0 2em
+        @media screen and (max-width: $thresholdMicro)
+            padding: 0 1em

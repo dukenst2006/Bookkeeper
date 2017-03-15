@@ -61,8 +61,6 @@ class TagsController extends BookkeeperController {
         $statistics = (new Cruncher())
             ->compileStatisticsFor($transactions, $start, $end);
 
-        dd($statistics);
-
         return $this->compileView('tags.overview', compact('tag', 'statistics'), trans('overview.index'));
     }
 

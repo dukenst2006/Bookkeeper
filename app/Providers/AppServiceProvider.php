@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
 
-    const VERSION = '0.9-alpha.0';
+    const VERSION = '0.9-alpha.1';
 
     /**
      * Register any application services.

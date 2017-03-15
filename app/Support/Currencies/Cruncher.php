@@ -20,7 +20,7 @@ class Cruncher {
      */
     public function compileStatisticsFor(Collection $transactions, Carbon $start, Carbon $end)
     {
-        $statistics = $this->getNewBaseForInterval($start, $end);
+        list($statistics, $labels) = $this->getNewBaseForInterval($start, $end);
 
         $accounts = $transactions->groupBy('account_id');
 
@@ -34,7 +34,7 @@ class Cruncher {
         $summary = $this->generateSummary($statistics, get_default_account());
         $statistics = $this->normalizeStatistics($statistics, get_default_account());
 
-        return array_merge($summary, $statistics);
+        return array_merge($summary, compact('statistics', 'labels'));
     }
 
     /**
@@ -48,14 +48,14 @@ class Cruncher {
      */
     public function compileAccountStatisticsFor(Collection $transactions, Account $account, Carbon $start, Carbon $end)
     {
-        $statistics = $this->getNewBaseForInterval($start, $end);
+        list($statistics, $labels) = $this->getNewBaseForInterval($start, $end);
 
         $statistics = $this->mergeTransactionsWith($transactions, $statistics, 1);
 
         $summary = $this->generateSummary($statistics, $account->getKey());
         $statistics = $this->normalizeStatistics($statistics, $account->getKey());
 
-        return array_merge($summary, $statistics);
+        return array_merge($summary, compact('statistics', 'labels'));
     }
 
     /**
@@ -68,16 +68,21 @@ class Cruncher {
     protected function getNewBaseForInterval(Carbon $start, Carbon $end)
     {
         $months = [];
+        $labels = [];
 
         while ($start->lt($end))
         {
             $months[$start->month] = 0;
+            $labels[] = $start->formatLocalized('%b');
             $start->addMonth();
         }
 
         return [
-            'income'  => $months,
-            'expense' => $months
+            [
+                'income'  => $months,
+                'expense' => $months
+            ],
+            $labels
         ];
     }
 
@@ -115,7 +120,7 @@ class Cruncher {
         return [
             'total_income'  => currency_string_for(floor($totalIncome), $accountId),
             'total_expense' => currency_string_for(floor($totalExpense), $accountId),
-            'profit'        => currency_string_for(floor($profit), $accountId),
+            'total_profit'  => currency_string_for(floor($profit), $accountId),
         ];
     }
 
@@ -132,8 +137,10 @@ class Cruncher {
         {
             foreach ($months as $month => $value)
             {
-                $statistics[$category][$month] = currency_string_for(floor($value), $accountId);
+                $statistics[$category][$month] = currency_float_for(floor($value), $accountId);
             }
+
+            $statistics[$category] = array_values($statistics[$category]);
         }
 
         return $statistics;

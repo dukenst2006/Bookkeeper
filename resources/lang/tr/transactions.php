@@ -23,6 +23,8 @@ return [
     'filter_expense' => 'Giderler',
     'filter_expense-i' => 'Gelecek Giderler',
 
+    'income' => 'Gelir',
+    'expense' => 'Gider',
     'add_income' => 'Gelir Ekle',
     'add_expense' => 'Gider Ekle',
     'received' => 'Alındı',

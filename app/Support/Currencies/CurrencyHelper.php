@@ -124,7 +124,7 @@ class CurrencyHelper {
 
         if ($amount == 0)
         {
-            return $this->zeroCurrencyString($decimal, $currency);
+            return $this->zeroCurrencyFloat($decimal) . ' ' . $currency;
         }
 
         if ($decimal == 0)
@@ -132,7 +132,33 @@ class CurrencyHelper {
             return $amount . ' ' . $currency;
         }
 
-        return $this->decimalCurrencyString($decimal, $amount) . ' ' . $currency;
+        return $this->decimalCurrencyFloat($decimal, $amount) . ' ' . $currency;
+    }
+
+    /**
+     * Converts amount to currency float
+     *
+     * @param int $amount
+     * @param int $accountId
+     * @return float
+     */
+    public function currencyFloatFor($amount, $accountId)
+    {
+        $account = $this->getAccount($accountId);
+
+        $decimal = static::getDecimalDigitsFor($account->currency);
+
+        if ($amount == 0)
+        {
+            return $this->zeroCurrencyFloat($decimal);
+        }
+
+        if ($decimal == 0)
+        {
+            return $amount;
+        }
+
+        return $this->decimalCurrencyFloat($decimal, $amount);
     }
 
     /**
@@ -156,20 +182,19 @@ class CurrencyHelper {
      * Generates a zero string response
      *
      * @param int $decimal
-     * @param string $currency
      * @return string
      */
-    protected function zeroCurrencyString($decimal, $currency)
+    protected function zeroCurrencyFloat($decimal)
     {
         if ($decimal == 0)
         {
-            return '0 ' . $currency;
+            return 0;
         } elseif ($decimal == 1)
         {
-            return '0.0 ' . $currency;
+            return 0.0;
         }
 
-        return '0.00 ' . $currency;
+        return 0.00;
     }
 
     /**
@@ -177,21 +202,15 @@ class CurrencyHelper {
      *
      * @param int $decimal
      * @param int $amount
-     * @return string
+     * @return float
      */
-    protected function decimalCurrencyString($decimal, $amount)
+    protected function decimalCurrencyFloat($decimal, $amount)
     {
-        $first = substr($amount, 0, - 1 * $decimal);
-        $second = substr($amount, - 1 * $decimal);
-
-        $first = empty($first) ? '0' : $first;
-
-        if ($decimal == 2 && strlen($second) == 1)
-        {
-            $second = '0' . $second;
+        if ($decimal == 1) {
+            return $amount/10;
         }
 
-        return $first . '.' . $second;
+        return $amount/100;
     }
 
 }

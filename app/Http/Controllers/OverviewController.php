@@ -26,9 +26,7 @@ class OverviewController extends BookkeeperController {
         $statistics = (new Cruncher())
             ->compileStatisticsFor($transactions, $start, $end);
 
-        dd($statistics);
-
-        return $this->compileView('overview.index');
+        return $this->compileView('overview.index', compact('statistics'));
     }
 
 }

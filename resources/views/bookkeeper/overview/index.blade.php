@@ -13,5 +13,7 @@ $currentRoute = 'bookkeeper.overview';
 @endsection
 
 @section('content')
-
+    @include('overview.chart')
 @endsection
+
+@include('transactions.create')

@@ -124,3 +124,19 @@ if ( ! function_exists('currency_string_for'))
             ->currencyStringFor($amount, $accountId);
     }
 }
+
+if ( ! function_exists('currency_float_for'))
+{
+    /**
+     * Returns the amount with float presentation
+     *
+     * @param int $amount
+     * @param int $accountId
+     * @return string
+     */
+    function currency_float_for($amount, $accountId)
+    {
+        return app('bookkeeper.support.currency')
+            ->currencyFloatFor($amount, $accountId);
+    }
+}

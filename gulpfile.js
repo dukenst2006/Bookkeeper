@@ -42,5 +42,9 @@ elixir(function (mix) {
             'tags.js',
             'transactions.js',
         ], elixir.config.publicPath + '/js/transactions.js')
+        .scripts([
+            'vendor/Chart.bundle.min.js',
+            'charts.js'
+        ], elixir.config.publicPath + '/js/charts.js')
     ;
 });

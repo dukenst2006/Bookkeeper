@@ -60,8 +60,6 @@ class AccountsController extends BookkeeperController {
         $statistics = (new Cruncher())
             ->compileAccountStatisticsFor($transactions, $account, $start, $end);
 
-        dd($statistics);
-
         return $this->compileView('accounts.overview', compact('account', 'statistics'), trans('overview.index'));
     }
 

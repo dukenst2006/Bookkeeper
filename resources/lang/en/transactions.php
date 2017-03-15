@@ -23,6 +23,8 @@ return [
     'filter_expense' => 'Expense',
     'filter_expense-i' => 'Future Expenses',
 
+    'income' => 'Income',
+    'expense' => 'Expense',
     'add_income' => 'Add Income',
     'add_expense' => 'Add Expense',
     'received' => 'Received',

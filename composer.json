@@ -1,7 +1,24 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "kenarkose/bookkeeper",
+    "description": "Laravel Powered Finance Tracker and CRM.",
+    "keywords": [
+        "kenarkose",
+        "bookkeeper",
+        "finance",
+        "crm",
+        "multilingual",
+        "laravel",
+        "laravel5"
+    ],
+    "version": "0.9-alpha.1",
+    "authors": [
+        {
+            "name": "Hyleeh",
+            "email": "egemen@kenarkose.com",
+            "homepage": "http://egemenkizilcan.com",
+            "role": "Developer / Designer"
+        }
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
