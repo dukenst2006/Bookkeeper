@@ -1,7 +1,7 @@
 <?php
 
-require_once 'routes/auth.php';
-require_once 'routes/common.php';
+require 'routes/auth.php';
+require 'routes/common.php';
 
 // Authenticated reactor
 Route::group(['middleware' => [
@@ -9,14 +9,14 @@ Route::group(['middleware' => [
     'set-theme:' . config('themes.active')
 ]], function ()
 {
-    require_once 'routes/accounts.php';
-    require_once 'routes/lists.php';
-    require_once 'routes/overview.php';
-    require_once 'routes/people.php';
-    require_once 'routes/profile.php';
-    require_once 'routes/settings.php';
-    require_once 'routes/tags.php';
-    require_once 'routes/transactions.php';
-    require_once 'routes/update.php';
-    require_once 'routes/users.php';
+    require 'routes/accounts.php';
+    require 'routes/lists.php';
+    require 'routes/overview.php';
+    require 'routes/people.php';
+    require 'routes/profile.php';
+    require 'routes/settings.php';
+    require 'routes/tags.php';
+    require 'routes/transactions.php';
+    require 'routes/update.php';
+    require 'routes/users.php';
 });

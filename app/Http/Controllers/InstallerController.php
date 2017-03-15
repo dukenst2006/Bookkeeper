@@ -144,7 +144,7 @@ class InstallerController extends Controller {
         $helper->setEnvVariable('APP_STATUS', 'INSTALLED');
 
         Artisan::call('route:cache');
-        Artisan::call('optimize');
+        Artisan::call('optimize', ['--force' => true]);
 
         return redirect()->route('install-complete');
     }
