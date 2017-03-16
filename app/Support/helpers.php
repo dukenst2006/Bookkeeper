@@ -115,13 +115,13 @@ if ( ! function_exists('currency_string_for'))
      * Returns the amount with currency presentation
      *
      * @param int $amount
-     * @param int $accountId
+     * @param int|Account $account
      * @return string
      */
-    function currency_string_for($amount, $accountId)
+    function currency_string_for($amount, $account)
     {
         return app('bookkeeper.support.currency')
-            ->currencyStringFor($amount, $accountId);
+            ->currencyStringFor($amount, $account);
     }
 }
 

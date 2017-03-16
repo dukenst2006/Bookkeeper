@@ -112,12 +112,14 @@ class CurrencyHelper {
      * Converts amount to currency text
      *
      * @param int $amount
-     * @param int $accountId
+     * @param int|Account $account
      * @return string
      */
-    public function currencyStringFor($amount, $accountId)
+    public function currencyStringFor($amount, $account)
     {
-        $account = $this->getAccount($accountId);
+        if ( ! $account instanceof Account) {
+            $account = $this->getAccount($account);
+        }
 
         $currency = $account->currency;
         $decimal = static::getDecimalDigitsFor($currency);
