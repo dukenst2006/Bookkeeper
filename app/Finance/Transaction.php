@@ -121,4 +121,21 @@ class Transaction extends Eloquent {
         return currency_string_for($this->amount, $this->account_id);
     }
 
+    /**
+     * Returns tag keys in an array
+     *
+     * @return array
+     */
+    public function getTagKeys()
+    {
+        $keys = [];
+
+        foreach($this->tags as $tag)
+        {
+            $keys[] = $tag->getKey();
+        }
+
+        return $keys;
+    }
+
 }

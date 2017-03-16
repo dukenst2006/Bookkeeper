@@ -10,6 +10,9 @@
     <th class="content-list__cell content-list__cell--head">
         {{ uppercase(trans('validation.attributes.name')) }}
     </th>
+    <th class="content-list__cell content-list__cell--head">
+        {{ uppercase(trans('accounts.balance')) }}
+    </th>
     <th class="content-list__cell content-list__cell--head content-list__cell--secondary">
         {!! uppercase(trans('validation.attributes.currency')) !!}
     </th>

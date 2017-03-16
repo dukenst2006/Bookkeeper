@@ -29,7 +29,7 @@ $currentRoute = 'bookkeeper.transactions.index';
                  id="transactionTags"
                  data-searchurl="{{ route('bookkeeper.tags.search.json') }}">
 
-                <input type="hidden" name="tags" value="[]" id="t_tags">
+                <input type="hidden" name="tags" value="{!! json_encode($transaction->getTagKeys()) !!}" id="t_tags">
 
                 <h4 class="form-section__heading">{{ uppercase(trans('tags.title')) }}</h4>
                 <ul class="tags-list tags-list--compact">

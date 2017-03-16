@@ -16,5 +16,6 @@ return [
 
     'new' => 'Yeni Hesap',
     'no_accounts' => 'Hesap bulunamadı.',
+    'balance' => 'Bakiye',
 
 ];

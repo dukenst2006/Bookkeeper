@@ -6,6 +6,9 @@
         <td class="content-list__cell">
             {!! link_to_route('bookkeeper.accounts.overview', $account->name, $account->getKey()) !!}
         </td>
+        <td class="content-list__cell">
+            {{ currency_string_for($account->getBalance(), $account->getKey()) }}
+        </td>
         <td class="content-list__cell content-list__cell--secondary">
             {{ $account->currency }}
         </td>

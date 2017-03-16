@@ -16,5 +16,6 @@ return [
 
     'new' => 'New Account',
     'no_accounts' => 'No accounts were found.',
+    'balance' => 'Balance',
 
 ];

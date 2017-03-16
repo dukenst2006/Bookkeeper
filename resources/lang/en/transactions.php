@@ -20,7 +20,7 @@ return [
     'filter_all' => 'All',
     'filter_income' => 'Incomes',
     'filter_income-i' => 'Future Incomes',
-    'filter_expense' => 'Expense',
+    'filter_expense' => 'Expenses',
     'filter_expense-i' => 'Future Expenses',
 
     'income' => 'Income',

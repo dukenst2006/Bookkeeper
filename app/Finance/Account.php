@@ -62,4 +62,19 @@ class Account extends Eloquent {
         return $this->hasMany(Transaction::class);
     }
 
+    /**
+     * Returns the account balance
+     *
+     * @return float
+     */
+    public function getBalance()
+    {
+        $incomes = $this->transactions
+            ->where('type', 'income');
+        $expenses = $this->transactions
+            ->where('type', 'expense');
+
+        return $incomes->sum('amount') - $expenses->sum('amount');
+    }
+
 }
